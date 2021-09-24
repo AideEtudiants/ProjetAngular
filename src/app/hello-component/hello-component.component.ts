@@ -12,11 +12,12 @@ export class HelloComponentComponent implements OnInit {
   constructor(private service : HelloServiceService) { }
 
   ngOnInit(): void {
-    this.service.getMessage().subscribe(data=>{
-      this.hello = data;
-      console.log(this.hello )
-
+    this.service.getMessage().subscribe(data =>{
+      console.log(data)
+       this.hello = data;
+  
     });
+    
   }
 
 }
