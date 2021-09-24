@@ -1,3 +1,5 @@
 export class Hello {
-    message: string ='';
+    message : string ='';
+
+   
 }

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class HelloServiceService {
 
   constructor(private http:HttpClient) {  }
-  getMessage() : Observable<object>{
+  getMessage() : Observable<Object>{
     return this.http.get("http://localhost:8080/hello");
   }
 }
