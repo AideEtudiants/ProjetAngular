@@ -1,5 +1,9 @@
 export class Hello {
-    message : string ='';
+    message : string ;
+    public constructor(message : string){
+        this.message = message;
+
+    }
 
    
 }

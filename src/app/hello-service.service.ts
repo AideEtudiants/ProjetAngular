@@ -6,10 +6,10 @@ import { Hello } from './hello';
 @Injectable({
   providedIn: 'root'
 })
-export class HelloServiceService {
+export class HelloService {
 
   constructor(private http:HttpClient) {  }
-  getMessage() : Observable<Object>{
+  getMessage() : Observable<any>{
     return this.http.get("http://localhost:8080/hello");
   }
 }

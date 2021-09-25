@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Hello } from '../hello';
-import { HelloServiceService } from '../hello-service.service';
+import { HelloService } from '../hello-service.service';
 
 @Component({
   selector: 'app-hello-component',
   templateUrl: './hello-component.component.html',
   styleUrls: ['./hello-component.component.css']
 })
-export class HelloComponentComponent implements OnInit {
-  hello: any;
-  constructor(private service : HelloServiceService) { }
+export class HelloComponent implements OnInit {
+  hello = new Hello('') ; 
+  constructor(private service : HelloService) { }
 
   ngOnInit(): void {
+    console.log(this.hello)
     this.service.getMessage().subscribe(data =>{
-      console.log(data)
        this.hello = data;
+       console.log(this.hello)
   
     });
     
