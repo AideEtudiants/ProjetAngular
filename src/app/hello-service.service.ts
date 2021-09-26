@@ -10,6 +10,6 @@ export class HelloService {
 
   constructor(private http:HttpClient) {  }
   getMessage() : Observable<any>{
-    return this.http.get("http://localhost:8080/hello");
+    return this.http.get("http://localhost:8080/hello",{responseType: 'text'});
   }
 }

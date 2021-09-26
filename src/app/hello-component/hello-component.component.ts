@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Hello } from '../hello';
 import { HelloService } from '../hello-service.service';
@@ -8,16 +9,18 @@ import { HelloService } from '../hello-service.service';
   styleUrls: ['./hello-component.component.css']
 })
 export class HelloComponent implements OnInit {
-  hello = new Hello('') ; 
+  hello : String='' ; 
   constructor(private service : HelloService) { }
 
   ngOnInit(): void {
-    console.log(this.hello)
-    this.service.getMessage().subscribe(data =>{
+    this.service.getMessage().subscribe((data :String )=>{
        this.hello = data;
-       console.log(this.hello)
   
-    });
+    },
+    (error:HttpErrorResponse)=>{
+      alert(error.message)
+    }
+    );
     
   }
 
