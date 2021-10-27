@@ -3,7 +3,7 @@ export class Hello {
     public constructor(message : string){
         this.message = message;
 
-    }
+    } 
 
    
 }
