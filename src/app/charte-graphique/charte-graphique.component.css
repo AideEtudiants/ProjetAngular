@@ -7,9 +7,9 @@
     box-sizing: border-box;
     padding-top: 130px;
     margin-top: -160px;
-    margin-left: -8px; 
+    margin-left: -8px;
     position: fixed;
-    
+
 }
 .appname{
     font-size: 28px;
@@ -37,8 +37,8 @@
  }
  .nav li{
      list-style: none;
-     float: left;  
-     font-size: 17px; 
+     float: left;
+     font-size: 17px;
  }
  .nav li a{
     text-align: center;
@@ -53,20 +53,12 @@
     padding-left: 25px;
     padding-right: 25px;
     text-decoration: none;
-    color:#eee;  
+    color:#eee;
     padding: 10px 25px 10px 25px ;
     border-radius: 10px;
  }
 
 
-.searchbar input{
-    padding: 12px 12px 13px 40px ;
-    width: 350px;
-    border: none;
-    border-radius: 10px;
-    background-color: #eee;
-   
-}
 
 /*ng add @angular/material*/
 
