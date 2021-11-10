@@ -13,6 +13,5 @@ export class CharteGraphiqueComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
 
 }
