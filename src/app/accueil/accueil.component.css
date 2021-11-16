@@ -1,0 +1,142 @@
+/*container*/
+.page-wrap {
+    background: #fff;
+    -webkit-box-shadow: 0 0 6px #ccc;
+    -khtml-box-shadow: 0 0 6px #ccc;
+    -moz-box-shadow: 0 0 6px #ccc;
+    -ms-box-shadow: 0 0 6px #ccc;
+    -o-box-shadow: 0 0 6px #ccc;
+    box-shadow: 0 0 6px #ccc;
+}
+
+.container {
+     width: 1170px;
+     padding-right: 15px;
+     padding-left: 15px;
+     margin-right: auto;
+     margin-left: auto;
+ }
+
+/*logo*/
+#logo {
+    width: 300px;
+    margin-right: 1em;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*menu*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 0px;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    text-align: center;
+}
+
+li {
+    display: inline;
+}
+
+li a {
+    display: inline-block;
+	  margin: 0 30px;
+    padding: 14px 16px;
+	  text-align: center;
+    text-decoration: none;
+    color: grey;
+}
+
+li a:hover:not(.active) {
+    background-color: red;
+}
+
+
+/*galerie images*/
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+.caroussel_diapo input {
+    position: absolute;
+    left: -9999px;
+}
+
+.caroussel_diapo {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.contenu_carou {
+    width: 500px;
+    height: 332px;
+    perspective: 4000px;
+}
+
+.caroussel {
+    transform-style: preserve-3d;
+    position: relative;
+    width: 500px;
+    height: 332px;
+    transition: 1s;
+}
+
+.caroussel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    outline: 1px solid transparent;
+    backface-visibility: hidden;
+    transition: 1s;
+}
+
+.caroussel img {filter:blur(3px);opacity:.8}
+.caroussel img:nth-child(1) {transform:translate3d(0,0,540px) scale(.8)}
+.caroussel img:nth-child(2) {transform:rotateY(45deg) translateZ(540px) scale(.8)}
+.caroussel img:nth-child(3) {transform:rotateY(90deg) translateZ(540px) scale(.8)}
+.caroussel img:nth-child(4) {transform:rotateY(135deg) translateZ(540px) scale(.8)}
+
+
+.caroussel_diapo input[type=radio] + label {
+    cursor: pointer;
+    background: hsl(203,77%,81%);
+    display: inline-block;
+    width: 20px;
+    border-radius: 50%;
+    height: 20px;
+}
+
+.caroussel_diapo input[type=radio]:checked + label {
+    background: hsl(203,77%,61%);
+}
+
+.caroussel_diapo label{
+    background: hsl(203,77%,61%);
+}
+
+.caroussel_diapo input[name="rotation"]:checked ~ .contenu_carou .caroussel img:nth-child(n) {
+    filter: drop-shadow(12px 12px 7px hsla(0,0%,0%,.5));
+}
+
+/*gauche*/
+.caroussel_diapo #carou_un:checked ~ .contenu_carou .caroussel {transform:translateZ(-540px)}
+.caroussel_diapo #carou_deux:checked ~ .contenu_carou .caroussel {transform:translateZ(-540px) rotateY(-45deg)}
+.caroussel_diapo #carou_trois:checked ~ .contenu_carou .caroussel {transform:translateZ(-540px) rotateY(-90deg)}
+.caroussel_diapo #carou_quatre:checked ~ .contenu_carou .caroussel {transform:translateZ(-540px) rotateY(-135deg)}
+
+/*droite*/
+.caroussel_diapo #carou_un:checked ~ .contenu_carou .caroussel img:nth-child(1) {transform:translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_deux:checked ~ .contenu_carou .caroussel img:nth-child(2) {transform:rotateY(45deg) translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_trois:checked ~ .contenu_carou .caroussel img:nth-child(3) {transform:rotateY(90deg) translateZ(540px) scale(1);opacity:1}
+.caroussel_diapo #carou_quatre:checked ~ .contenu_carou .caroussel img:nth-child(4) {transform:rotateY(135deg) translateZ(540px) scale(1);opacity:1}
