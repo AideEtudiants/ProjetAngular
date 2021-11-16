@@ -15,6 +15,10 @@
      padding-left: 15px;
      margin-right: auto;
      margin-left: auto;
+     box-sizing: border-box;
+     box-shadow: 0 0 6px rgb(133, 165, 101);
+     min-height: 100%;
+     display: table;
  }
 
 /*logo*/
