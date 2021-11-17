@@ -11,6 +11,11 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ForumComponent } from './forum/forum.component';
 import { CoursComponent } from './cours/cours.component';
 import { OffresComponent } from './offres/offres.component'
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -21,13 +26,18 @@ import { OffresComponent } from './offres/offres.component'
     ForumComponent,
     CoursComponent,
     OffresComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
