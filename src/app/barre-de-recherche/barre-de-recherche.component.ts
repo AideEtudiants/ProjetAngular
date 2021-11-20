@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { Product } from '../interfaces/productInterface';
+import { RechercheService } from '../services/rechercheService.service';
 
  @Component({
   selector: 'app-barre-de-recherche',
@@ -10,10 +12,18 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class BarreDeRechercheComponent implements OnInit {
   myControl = new FormControl();
-  options: string[] = ['element1', 'livre2','offre3'];
+  //options: string[] = ['element1', 'livre2','offre3'];
+  options: string[] ;
   filteredOptions: Observable<string[]>;
 
-  ngOnInit() {
+
+    constructor(private serviceRecherche : RechercheService){}
+  
+    ngOnInit() {
+      this.serviceRecherche.getAll().subscribe((data: Product["NAME"][])=>{
+        this.options = data;
+      });
+    
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value)),
