@@ -38,7 +38,7 @@ ul {
     padding-top: 0px;
     border: 0;
     font: inherit;
-    font-size: 100%;
+    font-size: 130%;
     text-align: center;
 }
 
@@ -48,8 +48,8 @@ li {
 
 li a {
     display: inline-block;
-	  margin: 0 30px;
-    padding: 14px 16px;
+	  margin: 0 50px;
+    padding: 18px 20px;
 	  text-align: center;
     text-decoration: none;
     color: grey;
