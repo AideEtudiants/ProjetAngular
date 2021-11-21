@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+/*import { AppRoutingModule } from './app-routing.module';*/
 import { AppComponent } from './app.component';
+import { RouterModule, Routes} from '@angular/router';
 
 import { HelloComponent } from './hello-component/hello-component.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +18,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+const routes: Routes = [
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'offres', component: OffresComponent },
+  { path: 'cours', component: CoursComponent },
+  { path: 'forum', component: ForumComponent },
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +37,7 @@ import { MatInputModule } from '@angular/material/input';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    /*AppRoutingModule,*/
     HttpClientModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
@@ -37,7 +45,8 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
