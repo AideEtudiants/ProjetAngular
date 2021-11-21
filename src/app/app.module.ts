@@ -21,7 +21,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ProduitsComponent } from './Produits/produits.component';
 
 const routes: Routes = [
-  { path: 'accueil', component: AccueilComponent },
+  { path: '', component: AccueilComponent },
   { path: 'produits', component: ProduitsComponent },
   { path: 'cours', component: CoursComponent },
   { path: 'forum', component: ForumComponent },

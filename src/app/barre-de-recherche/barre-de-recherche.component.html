@@ -5,11 +5,11 @@
       [formControl]="myControl"
       [matAutocomplete]="auto"/>
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-select
+        <mat-option
          *ngFor="let option of filteredOptions | async" 
          [value]="option">
           {{option}}
-        </mat-select>
+        </mat-option>
       </mat-autocomplete>
    
   <div style="margin-top: -28px;margin-left: 10px;">

@@ -5,12 +5,12 @@ import { CoursComponent } from './cours/cours.component';
 import { ForumComponent } from './forum/forum.component';
 import { ProduitsComponent } from './Produits/produits.component';
 
-const routes: Routes = [
-  { path: 'accueil', component: AccueilComponent },
-  { path: 'produits', component: ProduitsComponent },
-  { path: 'cours', component: CoursComponent },
-  { path: 'forum', component: ForumComponent },
-];
+// const routes: Routes = [
+//   { path: 'accueil', component: AccueilComponent },
+//   { path: 'produits', component: ProduitsComponent },
+//   { path: 'cours', component: CoursComponent },
+//   { path: 'forum', component: ForumComponent },
+// ];
 
 @NgModule({
 
