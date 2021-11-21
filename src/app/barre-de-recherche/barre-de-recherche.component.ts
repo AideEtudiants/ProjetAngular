@@ -12,8 +12,8 @@ import { RechercheService } from '../services/rechercheService.service';
 })
 export class BarreDeRechercheComponent implements OnInit {
   myControl = new FormControl();
-  //options: string[] = ['element1', 'livre2','offre3'];
-  options: string[] ;
+ // options: string[] = ['element1', 'livre2','offre3'];
+   options: string[] ;
   filteredOptions: Observable<string[]>;
 
 

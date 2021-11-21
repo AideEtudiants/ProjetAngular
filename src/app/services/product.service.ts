@@ -12,19 +12,19 @@ export class ProductService {
 
   constructor(private http:HttpClient) {  }
   getAllProducts() : Observable<ProductEntity[]>{
-    return this.http.get<ProductEntity[]>("http://localhost:8080/products");
+    return this.http.get<ProductEntity[]>("http://localhost:8080/product/all");
   }
   getProductById(idProduct: number):Observable<ProductEntity>{
-    return this.http.get<ProductEntity>("http://localhost:8080/product/{'idProduct'}");
+    return this.http.get<ProductEntity>(`http://localhost:8080/product/${idProduct}`);
   }
   updatProcut(productToUpdate:number):Observable<ProductEntity>{
     return this.http.post<ProductEntity>("http://localhost:8080/product",productToUpdate);
   }
-  RemoveProduct(idProduct:number):Observable<ProductEntity>{
-    return this.http.post<ProductEntity>("http://localhost:8080/productDeleted",idProduct);
+  RemoveProduct(idProduct:number):Observable<void>{
+    return this.http.delete<void>(`http://localhost:8080/product/delete/${idProduct}`);
   }
   addProduct(newProduct:ProductEntity):Observable<ProductEntity>{
-    return this.http.post<ProductEntity>("http://localhost:8080/new-product",newProduct);
+    return this.http.post<ProductEntity>("http://localhost:8080/product",newProduct);
   }
 
 
