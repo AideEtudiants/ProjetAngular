@@ -1,0 +1,107 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="form-group">
+        <label for="lastName">LastName</label>
+        <input type="text" [(ngModel)]="user.lastName"
+               class="form-control"
+               id="lastName"
+               name="lastName"
+               placeholder="Enter your last name"
+               required #lastName="ngModel">
+      </div>
+      <div [hidden]="!lastName.pristine" class="alert alert-danger">Last name is required</div>
+
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" [(ngModel)]="user.firstName"
+               class="form-control"
+               id="firstName"
+               name="firstName"
+               placeholder="Enter your First Name"
+               required #firstName="ngModel">
+      </div>
+      <div [hidden]="!firstName.pristine" class="alert alert-danger">First Name is required</div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" [(ngModel)]="user.email"
+               class="form-control"
+               id="email"
+               name="email"
+               placeholder="Enter your email address"
+               required #email="ngModel">
+        <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" [(ngModel)]="user.password"
+               class="form-control"
+               id="password"
+               name="password"
+               placeholder="Enter your password"
+               required #password="ngModel">
+      </div>
+      <div [hidden]="!password.pristine" class="alert alert-danger">Password is required</div>
+
+      <div class="form-group">
+        <label for="birthDate">BirthDate</label>
+        <input type="date" [(ngModel)]="user.birthDate"
+               class="form-control"
+               id="birthDate"
+               name="birthDate"
+               placeholder="Enter your birthDate"
+               required #birthDate="ngModel">
+      </div>
+      <div [hidden]="!birthDate.pristine" class="alert alert-danger">Birth date is required</div>
+
+      <div class="form-group">
+        <label for="studyLevel">Study Level</label>
+        <input type="text" [(ngModel)]="user.studyLevel"
+               class="form-control"
+               id="studyLevel"
+               name="studyLevel"
+               placeholder="Enter your Study Level"
+               required #studyLevel="ngModel">
+      </div>
+      <div [hidden]="!studyLevel.pristine" class="alert alert-danger">Study Level is required</div>
+
+      <div class="form-group">
+        <label for="establishment">Establishment</label>
+        <input type="text" [(ngModel)]="user.establishment"
+               class="form-control"
+               id="establishment"
+               name="establishment"
+               placeholder="Enter your establishment"
+               required #establishment="ngModel">
+      </div>
+      <div [hidden]="!establishment.pristine" class="alert alert-danger">Establishment is required</div>
+
+      <div class="form-group">
+        <label for="certificateRegist">Certificate Regist</label>
+        <input type="text" [(ngModel)]="user.certificateRegist"
+               class="form-control"
+               id="certificateRegist"
+               name="certificateRegist"
+               placeholder="Enter your certificateRegist"
+               required #certificateRegist="ngModel">
+      </div>
+      <div [hidden]="!certificateRegist.pristine" class="alert alert-danger">CertificateRegist is required</div>
+
+      <div class="form-group">
+        <label for="photo">Photo</label>
+        <input type="text" [(ngModel)]="user.photo"
+               class="form-control"
+               id="photo"
+               name="photo"
+               placeholder="Enter your photo"
+               required #photo="ngModel">
+      <div [hidden]="!photo.pristine" class="alert alert-danger">photo is required</div>
+      </div>
+
+      <button type="submit" [disabled]="!userForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

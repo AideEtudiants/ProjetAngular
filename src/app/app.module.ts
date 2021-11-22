@@ -19,12 +19,17 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ProduitsComponent } from './Produits/produits.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { UserFormComponent } from './users/user-form/user-form.component';
+import { UserService } from './users/services/user-service.service';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'produits', component: ProduitsComponent },
   { path: 'cours', component: CoursComponent },
   { path: 'forum', component: ForumComponent },
+  { path: 'users', component: UserListComponent },
+     { path: 'adduser', component: UserFormComponent }
 ];
 
 @NgModule({
@@ -35,7 +40,9 @@ const routes: Routes = [
     AccueilComponent,
     ForumComponent,
     CoursComponent,
-    ProduitsComponent
+    ProduitsComponent,
+    UserListComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +57,9 @@ const routes: Routes = [
     MatInputModule,
     RouterModule.forRoot(routes),
     CommonModule,
-    ToastrModule.forRoot()// ToastrModule added 
+    ToastrModule.forRoot()// ToastrModule added
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
