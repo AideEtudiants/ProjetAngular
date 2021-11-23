@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'cours', component: CoursComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'users', component: UserListComponent },
-     { path: 'adduser', component: UserFormComponent }
+  { path: 'adduser', component: UserFormComponent }
 ];
 
 @NgModule({
