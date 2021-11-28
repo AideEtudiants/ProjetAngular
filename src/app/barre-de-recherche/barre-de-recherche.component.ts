@@ -12,18 +12,19 @@ import { RechercheService } from '../services/rechercheService.service';
 })
 export class BarreDeRechercheComponent implements OnInit {
   myControl = new FormControl();
- // options: string[] = ['element1', 'livre2','offre3'];
-   options: string[] ;
+   options: any[]=[];
+   data:any='';
   filteredOptions: Observable<string[]>;
 
 
     constructor(private serviceRecherche : RechercheService){}
-  
+
     ngOnInit() {
-      this.serviceRecherche.getAll().subscribe((data: Product["NAME"][])=>{
-        this.options = data;
+      this.serviceRecherche.getAll().subscribe((data:any[])=>{
+        this.options= data;
+        console.log(this.options);
       });
-    
+
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value)),
@@ -33,6 +34,9 @@ export class BarreDeRechercheComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+  rechercher(){
+    this.serviceRecherche.rechercheProduct(this.data).subscribe();
   }
 }
 
