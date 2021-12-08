@@ -4,8 +4,9 @@ export class ProductEntity{
     name!: string;
 	image!: string;
     description!: string;
-    statusCode!: string;
-    categoryCode!: Date;
+    statusCode!: number;
+    categoryCode!: number;
     userCode!: string;
-    prix: number;
+    availability!: number;
+    prix: number
 }
