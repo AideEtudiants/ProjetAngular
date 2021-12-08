@@ -28,9 +28,6 @@ export class RechercheService {
     //        this.log(`produit trouvé "${element}"`) :
     //        this.log(`pas de produit de ce nom "${element}"`))
     //   );
-    return this.http.get(`http://localhost:8080/${element}`);
-  }
-  log(arg0: string) {
-    throw new Error('Error');
+    return this.http.post('http://localhost:8080/',element);
   }
 }
