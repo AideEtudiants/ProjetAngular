@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { ProductEntity } from '../Entity/ProductEntity';
 import { Product } from '../interfaces/productInterface';
 import { RechercheService } from '../services/rechercheService.service';
 
@@ -12,7 +13,7 @@ import { RechercheService } from '../services/rechercheService.service';
 })
 export class BarreDeRechercheComponent implements OnInit {
   myControl = new FormControl();
-   options: any[]=[];
+   options: any=[];
    data:any='';
   filteredOptions: Observable<string[]>;
 
@@ -20,8 +21,8 @@ export class BarreDeRechercheComponent implements OnInit {
     constructor(private serviceRecherche : RechercheService){}
 
     ngOnInit() {
-      this.serviceRecherche.getAll().subscribe((data:any[])=>{
-        this.options= data;
+      this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
+        this.options= data.map(p=>p.name);
         console.log(this.options);
       });
 
@@ -37,6 +38,7 @@ export class BarreDeRechercheComponent implements OnInit {
   }
   rechercher(){
     this.serviceRecherche.rechercheProduct(this.data).subscribe();
+    console.log(this.data)
   }
 }
 

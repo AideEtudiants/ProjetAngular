@@ -18,6 +18,7 @@ export class ProduitsComponent implements OnInit {
   ) { }
 
     ngOnInit(): void {
+        this.getAllProducts();
     }
     getAllProducts(){
         this.productService.getAllProducts()
@@ -36,11 +37,24 @@ export class ProduitsComponent implements OnInit {
             next :(data)=>{
                 this.toastService.success('Le produit est bien été supprimé')
             },
-            error :()=>  this.toastService.error('Erreur lors de lq suppression')
+            error :()=>  this.toastService.error('Erreur lors de la suppression')
 
         });
 
     }
+    addProduct(product : ProductEntity){
+        this.productService.addProduct(product)
+        .subscribe({
+            next :(data)=>{
+                this.toastService.success('Le produit est bien été ajouté')
+            },
+            error :()=>  this.toastService.error('Erreur lors de lajout')
+
+        });
+
+    }
+
+
 
 
 }

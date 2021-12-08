@@ -18,22 +18,79 @@
 </div>
 
 <br>
-<br>
 
-<script src="https://kit.fontawesome.com/" crossorigin="anonymous"></script>
 <div class="wrapper">
-    <div class="sidebar">
-        <ul>
-            <li class= "active"><a href="/produits"><i class="fas fa-project-diagram"></i>Toutes les offres</a></li>
-            <li><a href="#"><i class="fa-solid fa-book"></i>Livres</a></li>
-            <li><a href="#"><i class="fa-solid fa-book-open-reader"></i>Devoirs</a></li>
-            <li><a href="#"><i class="fa-solid fa-computer-classic"></i>Equipements</a></li>
-            <li><a href="#"><i class="fa-regular fa-block-question"></i>Autres</a></li>
-        </ul>
-    </div>
-    <div class="main_content">
-        <div class="header">
-            <h1 style="font-size:36pt; text-align: center; color: #d63f1f">Offres disponibles</h1>
+  <div class="sidebar">
+      <ul>
+        <li class= "active"><a href="/produits">Toutes les offres</a></li>
+        <li><a href="#">Livres</a></li>
+        <li><a href="#">Devoirs</a></li>
+        <li><a href="#">Equipements</a></li>
+        <li><a href="#">Autres</a></li>
+      </ul>
+  </div>
+</div>
+<br>
+    <!-- 
+    <ng-container *ngIf="productList.length !=0">
+      <div class="container">
+          <div class="card-table">
+              <div class="cart-product">
+                  <table class="table table-responsive">
+                      <thead>
+                          <tr>
+                            <th scope="col"> Name</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Prix</th>
+                            <th scope="col">StatusCode</th>
+                            <th scope="col">UserCode</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let produit of productList; let i = index">
+                              <td>{{i+1}}</td>
+                              <td>{{ produit.name }}</td>
+                              <td><img style="width: 120px;" src="{{produit.images}}" alt=""></td>
+                              <td style="width: 25%;">{{produit.description}}</td>
+                              <th style="width: 12%;">{{produit.prix}}</th>
+                              <td style="width: 12%;">{{produit.categoryCode}}</td>
+                              <td style="width: 12%;">{{produit.statusCode}}</td>
+                              <td>
+                                  <button (click)="deleteProduct(produit.id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </ng-container>
+  <ng-container *ngIf="productList.length ==0">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">My Cart</h5>
+        </div>
+        <div class="center">
+            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+            <h4>Your cart is empty!</h4>
+            <h6>Add item to it now</h6>
+            <button routerLink="/products" class="btn btn-primary">Shop Now</button>
         </div>
     </div>
-</div>
+</ng-container>
+
+-->
+<div class="container">
+<div class="row">
+      <ng-container *ngFor="let item of productList">
+          <div class="card col-md-3">
+              <img src="{{item.image}}" alt="">
+              <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
+              <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+              <p><strong>Prix:</strong> {{item.prix}} € </p>
+              <button class="btn btn-primary" (click)=addProduct(item)>Ajouter au panier</button>
+          </div>
+      </ng-container>
+
+  </div>
