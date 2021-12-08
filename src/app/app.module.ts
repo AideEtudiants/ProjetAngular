@@ -22,6 +22,7 @@ import { ProduitsComponent } from './Produits/produits.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserService } from './users/services/user-service.service';
+import { QuestionComponent } from './question/question.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -29,7 +30,8 @@ const routes: Routes = [
   { path: 'cours', component: CoursComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'users', component: UserListComponent },
-  { path: 'adduser', component: UserFormComponent }
+  { path: 'adduser', component: UserFormComponent },
+  { path: 'question', component: QuestionComponent }
 ];
 
 @NgModule({
@@ -42,7 +44,8 @@ const routes: Routes = [
     CoursComponent,
     ProduitsComponent,
     UserListComponent,
-    UserFormComponent
+    UserFormComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

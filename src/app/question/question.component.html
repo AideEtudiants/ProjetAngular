@@ -1,0 +1,39 @@
+<img id= "logo" src= "./assets/logo.jpg" alt>
+
+<div>
+<app-barre-de-recherche></app-barre-de-recherche>
+</div>
+<br>
+
+<div class="container page-wrap">
+  <header id= "header">
+    <ul>
+      <li><a href= ""> <span>ACCUEIL</span></a></li>
+      <li><a href= "produits"> <span>OFFRES</span></a></li>
+      <li><a href= "cours"> <span>AIDES AUX DEVOIRS</span></a></li>
+      <li class= "active"><a href= "/forum"> <span>FORUM</span></a></li>
+    </ul>
+  </header>
+</div>
+
+<br>
+
+<div class="container">
+    <br>
+    <h1 align="center">Forum Studenity</h1>
+  <p align="center">Saisir votre question</p>
+  <div class="row" align="center">
+  <input class="form-control" type="text" width="30%" placeholder="Ma question">
+</div><br>
+  <div class="row">
+    <div class="col-xs-12">
+      <div align="center">
+        <textarea class="form-control h-25" rows="5" placeholder="Détails" required></textarea>
+      </div><br> <p align="center">Des étudiants se chargeront de repondre à votre question </p><br>
+      <div align="center">
+        <button class="btn btn-success" type="submit" (click)="listQuestion()">Soumettre</button>
+    </div>
+    <br>
+  </div>
+</div>
+    
