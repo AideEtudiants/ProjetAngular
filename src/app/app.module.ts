@@ -1,28 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 /*import { AppRoutingModule } from './app-routing.module';*/
-import { AppComponent } from './app.component';
 import { RouterModule, Routes} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 
-import { HelloComponent } from './hello-component/hello-component.component';
+import { HelloComponent } from './components/hello-component/hello-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BarreDeRechercheComponent } from './barre-de-recherche/barre-de-recherche.component';
-import { ForumComponent } from './forum/forum.component';
-import { CoursComponent } from './cours/cours.component';
+import { BarreDeRechercheComponent } from './components/barre-de-recherche/barre-de-recherche.component';
+import { ForumComponent } from './components/forum/forum.component';
+import { CoursComponent } from './components/cours/cours.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { AccueilComponent } from './accueil/accueil.component';
-import { ProduitsComponent } from './Produits/produits.component';
-import { UserListComponent } from './users/user-list/user-list.component';
-import { UserFormComponent } from './users/user-form/user-form.component';
-import { UserService } from './users/services/user-service.service';
-import { QuestionComponent } from './question/question.component';
+import { AccueilComponent } from './components/accueil/accueil.component';
+import { ProduitsComponent } from './components/Produits/produits.component';
+import { QuestionComponent } from './components/question/question.component';
+import { CartComponent } from './components/cart/cart.component';
+import { UserService } from './services/user/user-service.service';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { AppComponent } from './components/app/app.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -31,7 +32,9 @@ const routes: Routes = [
   { path: 'forum', component: ForumComponent },
   { path: 'users', component: UserListComponent },
   { path: 'adduser', component: UserFormComponent },
-  { path: 'question', component: QuestionComponent }
+  { path: 'question', component: QuestionComponent },
+  { path: 'cart', component: CartComponent },
+
 ];
 
 @NgModule({
@@ -45,7 +48,8 @@ const routes: Routes = [
     ProduitsComponent,
     UserListComponent,
     UserFormComponent,
-    QuestionComponent
+    QuestionComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

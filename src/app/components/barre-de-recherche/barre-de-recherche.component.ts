@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
+import { Router } from '@angular/router';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import { ProductEntity } from '../Entity/ProductEntity';
-import { Product } from '../interfaces/productInterface';
-import { RechercheService } from '../services/rechercheService.service';
+import { RechercheService } from 'src/app/services/search/rechercheService.service';
+import { ProductEntity } from '../../Entity/ProductEntity';
 
  @Component({
   selector: 'app-barre-de-recherche',
@@ -18,7 +18,7 @@ export class BarreDeRechercheComponent implements OnInit {
   filteredOptions: Observable<string[]>;
 
 
-    constructor(private serviceRecherche : RechercheService){}
+    constructor(private serviceRecherche : RechercheService,private router: Router){}
 
     ngOnInit() {
       this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
@@ -39,6 +39,9 @@ export class BarreDeRechercheComponent implements OnInit {
   rechercher(){
     this.serviceRecherche.rechercheProduct(this.data).subscribe();
     console.log(this.data)
+  }
+  openCart(){
+    this.router.navigate(['/cart']);
   }
 }
 

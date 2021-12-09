@@ -7,7 +7,11 @@
          [matAutocomplete]="auto"
          [(ngModel)]=" data"
           >   
-          <button class="btn btn-primary"  (click)="rechercher()"> Rechercher </button>  
+          <button class="btn btn-primary b"  (click)="rechercher()"> Rechercher </button>
+          <button (click)="openCart()" class="btn btn-primary">
+            <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+            <div style="font-size: 10px;" class="badge bg-danger"></div>
+          </button>  
 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
         <mat-option
          *ngFor="let option of filteredOptions | async"

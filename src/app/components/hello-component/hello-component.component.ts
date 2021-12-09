@@ -1,7 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Hello } from '../hello';
-import { HelloService } from '../hello-service.service';
+import { HelloService } from '../../services/hello/hello-service.service';
 
 @Component({
   selector: 'app-hello-component',
