@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ProductEntity } from '../Entity/ProductEntity';
-import { ProductService } from '../services/product.service';
+import { ProductEntity } from '../../Entity/ProductEntity';
 import { ToastrService } from 'ngx-toastr';
+import { CartService } from '../../services/cart/cart.service';
+import { ProductService } from 'src/app/services/product/product.service';
 
 
 @Component({
@@ -17,12 +18,26 @@ export class ProduitsComponent implements OnInit {
 
   constructor(
       public productService : ProductService,
-      public toastService : ToastrService
+      public toastService : ToastrService,
+      private cartService : CartService
   ) { }
 
     ngOnInit(): void {
         this.getAllProducts();
+        this.cartService.getProducts()
+       .subscribe(res=>{
+        this.totalItem = res.length;
+        })
     }
+    
+  public totalItem : number = 0;
+  public searchTerm !: string;
+
+  search(event:any){
+    // this.searchTerm = (event.target as HTMLInputElement).value;
+    // console.log(this.searchTerm);
+    // this.cartService.search.next(this.searchTerm);
+  }
     getAllProducts(){
         this.productService.getAllProducts()
         . subscribe ((data :ProductEntity [] )=>{
@@ -57,6 +72,17 @@ export class ProduitsComponent implements OnInit {
         });
 
     }
+    addtocart(item: any){
+        this.cartService.addtoCart(item);
+      }
+    // filter(category:string){
+    //     this.filterCategory = this.productList
+    //     .filter((a:any)=>{
+    //       if(a.category == category || category==''){
+    //         return a;
+    //       }
+    //     })
+    //   }
 
     findProductByCategory(idCategorie:number){
         this.productService.findProductByCategory(idCategorie)

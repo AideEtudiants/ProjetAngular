@@ -2,8 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ProductEntity } from '../Entity/ProductEntity';
-
+import { ProductEntity } from 'src/app/Entity/ProductEntity';
 
 @Injectable({
   providedIn: 'root'
