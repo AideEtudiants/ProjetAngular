@@ -11,7 +11,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./produits.component.css']
 })
 export class ProduitsComponent implements OnInit {
-  productList : ProductEntity []
+  productList : ProductEntity [];
+  productFiltredList : ProductEntity [];     
+  filter: boolean =false;
+
   constructor(
       public productService : ProductService,
       public toastService : ToastrService
@@ -24,6 +27,7 @@ export class ProduitsComponent implements OnInit {
         this.productService.getAllProducts()
         . subscribe ((data :ProductEntity [] )=>{
             this.productList = data;
+            this.filter=false;
             },
         (error:HttpErrorResponse)=>{
             alert(error.message)
@@ -53,6 +57,22 @@ export class ProduitsComponent implements OnInit {
         });
 
     }
+
+    findProductByCategory(idCategorie:number){
+        this.productService.findProductByCategory(idCategorie)
+        .subscribe({
+            next :(data:ProductEntity[])=>{
+                this.productFiltredList=data;
+                this.filter= true;
+            },
+            error :()=>  this.toastService.error('Erreur')
+
+        });
+    }
+
+    // getproductList():ProductEntity[]{
+    //     return this.filter ? this.productFiltredList : this.productList ;
+    // }
 
 
 

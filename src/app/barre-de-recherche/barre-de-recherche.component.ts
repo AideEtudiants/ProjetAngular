@@ -12,10 +12,10 @@ import { RechercheService } from '../services/rechercheService.service';
   styleUrls: ['./barre-de-recherche.component.css']
 })
 export class BarreDeRechercheComponent implements OnInit {
-  myControl = new FormControl();
+   myControl = new FormControl();
    options: any=[];
    data:any='';
-  filteredOptions: Observable<string[]>;
+   filteredOptions: Observable<string[]>;
 
 
     constructor(private serviceRecherche : RechercheService){}

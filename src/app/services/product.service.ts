@@ -27,5 +27,9 @@ export class ProductService {
     return this.http.post<ProductEntity>("http://localhost:8080/product",newProduct);
   }
 
+  findProductByCategory(idCategorie:number) : Observable<ProductEntity[]>{
+    return this.http.post<ProductEntity[]>("http://localhost:8080/product/searchByCategory",idCategorie);
+  }
+
 
 }

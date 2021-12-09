@@ -23,9 +23,9 @@
   <div class="sidebar">
       <ul>
         <li class= "active"><a href="/produits">Toutes les offres</a></li>
-        <li><a href="#">Livres</a></li>
-        <li><a href="#">Equipements</a></li>
-        <li><a href="#">Autres</a></li>
+        <li><button (click)="findProductByCategory(1)">Livres</button></li>
+        <li><a href="/produits" (click)="findProductByCategory(2)">Equipements</a></li>
+        <li><a href="/produits" (click)="findProductByCategory(3)">Autres</a></li>
       </ul>
   </div>
 </div>
@@ -81,8 +81,8 @@
 
 -->
 <div class="container">
-<div class="row">
-      <ng-container *ngFor="let item of productList">
+<div class="row"> 
+      <ng-container *ngFor="let item of productList" ngIf="!filter">     
           <div class="card col-md-3">
               <img src="{{item.image}}" alt="">
               <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
@@ -91,5 +91,13 @@
               <button class="btn btn-primary" (click)=addProduct(item)>Ajouter au panier</button>
           </div>
       </ng-container>
-
+      <ng-container *ngFor="let item of productFiltredList " ngIf="filter">     
+        <div class="card col-md-3">
+            <img src="{{item.image}}" alt="">
+            <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
+            <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+            <p><strong>Prix:</strong> {{item.prix}} € </p>
+            <button class="btn btn-primary" (click)=addProduct(item)>Ajouter au panier</button>
+        </div>
+    </ng-container>
   </div>
