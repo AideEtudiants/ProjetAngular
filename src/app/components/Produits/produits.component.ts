@@ -4,6 +4,7 @@ import { ProductEntity } from '../../Entity/ProductEntity';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../services/cart/cart.service';
 import { ProductService } from 'src/app/services/product/product.service';
+import { Cart } from 'src/app/Entity/cartEntity';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class ProduitsComponent implements OnInit {
   productFiltredList : ProductEntity [];     
   filter: boolean =false;
 
+  productListSelect: Cart ;
   constructor(
       public productService : ProductService,
       public toastService : ToastrService,
@@ -24,7 +26,7 @@ export class ProduitsComponent implements OnInit {
 
     ngOnInit(): void {
         this.getAllProducts();
-        this.cartService.getProducts()
+        this.cartService.getProducts(4)
        .subscribe(res=>{
         this.totalItem = res.length;
         })
@@ -72,8 +74,10 @@ export class ProduitsComponent implements OnInit {
         });
 
     }
-    addtocart(item: any){
-        this.cartService.addtoCart(item);
+    addtocart(idProduct : number, idUser: number){
+        this.cartService.addtoCart(idProduct,idUser).subscribe(res=>{
+            this.productListSelect =  res;
+         });
       }
     // filter(category:string){
     //     this.filterCategory = this.productList

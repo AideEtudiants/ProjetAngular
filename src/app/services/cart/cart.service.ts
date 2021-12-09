@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ProductEntity } from 'src/app/Entity/ProductEntity';
 import { Observable } from 'rxjs';
+import { Cart } from 'src/app/Entity/cartEntity';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   constructor(private http:HttpClient) { }
-  getProducts(): Observable<ProductEntity[]>{
-    return this.http.get<ProductEntity[]>("http://localhost:8080/cart/list");
+  getProducts(idUser: number): Observable<Cart[]>{
+    return this.http.post<Cart[]>("http://localhost:8080/cart/list",idUser);
   }
-  addtoCart(product : ProductEntity):Observable<ProductEntity>
+  addtoCart(idPoduct :number,idUser: number):Observable<Cart>
   {
-    return this.http.post<ProductEntity>("http://localhost:8080/cart/create",product);
+    return this.http.post<Cart>("http://localhost:8080/cart/create",{
+      idPoduct,
+      idUser
+    });
   }
   getTotalPrice() :Observable<number>{
     return this.http.get<number>("http://localhost:8080/cart/totalPrice");
