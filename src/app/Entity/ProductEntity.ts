@@ -8,5 +8,5 @@ export class ProductEntity{
     categoryCode!: number;
     userCode!: string;
     availability!: number;
-    prix: number
+    price: number
 }
