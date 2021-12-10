@@ -4,11 +4,6 @@ import { ProductEntity } from '../../Entity/ProductEntity';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../services/cart/cart.service';
 import { ProductService } from 'src/app/services/product/product.service';
-import { RechercheService } from 'src/app/services/rechercheService.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
-import { map, startWith } from 'rxjs/operators';
 import { Cart } from 'src/app/Entity/cartEntity';
 
 
@@ -19,62 +14,25 @@ import { Cart } from 'src/app/Entity/cartEntity';
 })
 export class ProduitsComponent implements OnInit {
   productList : ProductEntity [];
-  productFiltredList : ProductEntity [];
+  productFiltredList : ProductEntity [];     
   filter: boolean =false;
+
   productListSelect: boolean ;
-  recherche:boolean=false;
-  myControl = new FormControl();
-  options: any=[];
-  data:any='';
-  elementTrouve:any=[];
-  filteredOptions: Observable<string[]>;
   constructor(
       public productService : ProductService,
       public toastService : ToastrService,
-      private cartService : CartService,
-      private serviceRecherche : RechercheService,
-      private route: ActivatedRoute,
-      private router: Router
+      private cartService : CartService
   ) { }
 
     ngOnInit(): void {
         this.getAllProducts();
         this.cartService.getProducts(4)
-       .subscribe(res=>{
+       .subscribe(res=>{    
          this.totalItem = res?.length;
          console.log(this.totalItem)
-        });
-
-        this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
-        this.options= data.map(p=>p.name);
-        console.log(this.options);
-        });
-
-        this.filteredOptions = this.myControl.valueChanges.pipe(
-        startWith(''),
-        map(value => this._filter(value)),
-        );
-        }
-
-        private _filter(value: string): string[] {
-        const filterValue = value.toLowerCase();
-        return this.options.filter(option => option.toLowerCase().includes(filterValue));
-        }
-        rechercher(){
-        this.serviceRecherche.rechercheProduct(this.data).subscribe(
-        (data:ProductEntity[])=>{
-        this.elementTrouve= data;
-        console.log(this.elementTrouve);
-        this.gotoElementTrouve();
-        this.recherche= true;
-        }
-        );
-
-        }
-        gotoElementTrouve() {
-        this.router.navigate(['/produits']);
-        }
-
+        })
+    }
+    
   public totalItem : number = 0;
   public searchTerm !: string;
 

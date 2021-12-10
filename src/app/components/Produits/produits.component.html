@@ -1,1 +1,61 @@
-https://github.com/AideEtudiants
+<header id= "header">
+
+  <img id= "logo" src= "./assets/logo.png" alt>
+
+<div>
+  <app-barre-de-recherche></app-barre-de-recherche>
+</div>
+
+<br>
+
+<div class="container page-wrap">
+    <ul>
+      <li><a href= ""> <span>ACCUEIL</span></a></li>
+      <li class= "active"><a href= "/produits"> <span>OFFRES</span></a></li>
+      <li><a href= "cours"> <span>AIDES AUX DEVOIRS</span></a></li>
+      <li><a href= "forum"> <span>FORUM</span></a></li>
+    </ul>
+</div>
+
+
+<br>
+
+<div class="wrapper">
+  <div class="sidebar">
+      <ul>
+        <li class= "active"><a href="/produits">Toutes les offres</a></li>
+        <li><a [routerLink]="" (click)="findProductByCategory(1)">Livres</a></li>
+        <li><a  [routerLink]="" (click)="findProductByCategory(2)">Equipements</a></li>
+        <li><a [routerLink]="" (click)="findProductByCategory(3)">Autres</a></li>
+      </ul>
+  </div>
+</div>
+<br>
+<div class="container2" *ngIf="!filter">
+<div class="row">
+      <ng-container *ngFor="let item of productList">
+          <div class="card col-md-3">
+              <img src="{{item.image}}" alt="">
+              <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
+              <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+              <p><strong>Prix:</strong> {{item.price}} € </p>
+              <button class="btn btn-primary" (click)=addtocart(item.id,4)>Ajouter au panier</button>
+          </div>
+      </ng-container>
+  </div>
+
+  </div>
+  <div class="container" *ngIf="filter">
+    <div class="row">
+          <ng-container *ngFor="let item of productFiltredList">
+              <div class="card col-md-3">
+                  <img src="{{item.image}}" alt="">
+                  <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
+                  <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+                  <p><strong>Prix:</strong> {{item.price}} € </p>
+                  <button class="btn btn-primary" (click)="addtocart(item.id,4)">Ajouter au panier</button>
+              </div>
+          </ng-container>
+      </div>
+      </div>
+</header>
