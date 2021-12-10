@@ -32,7 +32,7 @@ export class BarreDeRechercheComponent implements OnInit {
       });
       this.cartService.getProducts(4)
       .subscribe(res=>{
-        this.totalItem = res.length;
+        this.totalItem = res?.length;
       })
 
     this.filteredOptions = this.myControl.valueChanges.pipe(

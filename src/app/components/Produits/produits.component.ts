@@ -17,7 +17,7 @@ export class ProduitsComponent implements OnInit {
   productFiltredList : ProductEntity [];     
   filter: boolean =false;
 
-  productListSelect: Cart ;
+  productListSelect: boolean ;
   constructor(
       public productService : ProductService,
       public toastService : ToastrService,
@@ -27,8 +27,9 @@ export class ProduitsComponent implements OnInit {
     ngOnInit(): void {
         this.getAllProducts();
         this.cartService.getProducts(4)
-       .subscribe(res=>{
-        this.totalItem = res.length;
+       .subscribe(res=>{    
+         this.totalItem = res?.length;
+         console.log(this.totalItem)
         })
     }
     
@@ -75,8 +76,11 @@ export class ProduitsComponent implements OnInit {
 
     }
     addtocart(idProduct : number, idUser: number){
-        this.cartService.addtoCart(idProduct,idUser).subscribe(res=>{
+        let cart = new Cart(idProduct,idUser);
+        console.log(cart)
+        this.cartService.addtoCart(cart).subscribe(res=>{
             this.productListSelect =  res;
+            console.log(this.productListSelect)
          });
       }
     // filter(category:string){

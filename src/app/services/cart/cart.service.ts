@@ -11,15 +11,12 @@ export class CartService {
   getProducts(idUser: number): Observable<Cart[]>{
     return this.http.post<Cart[]>("http://localhost:8080/cart/list",idUser);
   }
-  addtoCart(idPoduct :number,idUser: number):Observable<Cart>
+  addtoCart(cart : Cart) :Observable<any>
   {
-    return this.http.post<Cart>("http://localhost:8080/cart/create",{
-      idPoduct,
-      idUser
-    });
+    return this.http.post<any>("http://localhost:8080/cart/create",cart)
   }
-  getTotalPrice() :Observable<number>{
-    return this.http.get<number>("http://localhost:8080/cart/totalPrice");
+  getTotalPrice(idUser: number) :Observable<number>{
+    return this.http.post<number>("http://localhost:8080/cart/totalPrice",idUser);
   }
   removeCartItem(idProduct:number):Observable<void>{
     return this.http.post<void>(`http://localhost:8080/cart/delete`,idProduct);
