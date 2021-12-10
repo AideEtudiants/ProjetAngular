@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import { Router } from '@angular/router';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import { CartService } from 'src/app/services/cart/cart.service';
-import { RechercheService } from 'src/app/services/search/rechercheService.service';
-import { ProductEntity } from '../../Entity/ProductEntity';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RechercheService } from 'src/app/services/rechercheService.service';
+import { ProductEntity } from 'src/app/Entity/ProductEntity';
 
  @Component({
   selector: 'app-barre-de-recherche',
@@ -14,26 +13,19 @@ import { ProductEntity } from '../../Entity/ProductEntity';
 })
 export class BarreDeRechercheComponent implements OnInit {
   myControl = new FormControl();
-  options: any=[];
-  data:any='';
+   options: any=[];
+   data:any='';
+   elementTrouve:any=[];
   filteredOptions: Observable<string[]>;
-  public totalItem : number = 0;
 
-    constructor
-    (private serviceRecherche : RechercheService,
-     private router: Router,
-     private cartService : CartService
-    ){}
+
+    constructor(private serviceRecherche : RechercheService,private route: ActivatedRoute,private router: Router){}
 
     ngOnInit() {
       this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
         this.options= data.map(p=>p.name);
         console.log(this.options);
       });
-      this.cartService.getProducts(4)
-      .subscribe(res=>{
-        this.totalItem = res?.length;
-      })
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -46,13 +38,25 @@ export class BarreDeRechercheComponent implements OnInit {
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
   rechercher(){
-    this.serviceRecherche.rechercheProduct(this.data).subscribe();
-    console.log(this.data)
+    this.serviceRecherche.rechercheProduct(this.data).subscribe(
+    (data:ProductEntity[])=>{
+            this.elementTrouve= data.map(p=>p.name);
+            console.log(this.elementTrouve);
+            this.gotoElementTrouve();
+          }
+    );
+
   }
-  openCart(){
-    this.router.navigate(['/cart']);
-  }
+    gotoElementTrouve() {
+      this.router.navigate(['/produits']);
+    }
+
+    openCart(){
+      this.router.navigate(['/cart']);
+    }
+
 }
+
 
 
 

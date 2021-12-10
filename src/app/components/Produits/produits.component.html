@@ -1,8 +1,38 @@
 <img id= "logo" src= "./assets/logo.jpg" alt>
 
-<div>
-  <app-barre-de-recherche></app-barre-de-recherche>
+<div class= "searchbar" style= "margin-left: 530px; margin-top: -68px;padding-bottom: 60px;">
+  <input
+    placeholder="Rechercher"
+    matInput
+    [formControl]="myControl"
+    [matAutocomplete]="auto"
+    [(ngModel)]=" data"
+  >
+  <button class="btn btn-primary b"  (click)="rechercher()"> Rechercher </button>
+  <button class="btn btn-primary b">
+    <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+    <div style="font-size: 10px;" class="badge bg-danger"></div>
+  </button>
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let option of filteredOptions | async"
+      [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-autocomplete>
+
+  <div style="margin-top: -30px;margin-left: 16px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="#999" class="bi bi-search" viewBox="0 0 16 16">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+    </svg>
+  </div>
+  <div style="margin-top: -25px;margin-left: 320px;cursor: pointer;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="#999" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+      <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+    </svg>
+  </div>
 </div>
+
 
 <br>
 
@@ -58,3 +88,30 @@
           </ng-container>
       </div>
       </div>
+
+<div class="container">
+  <div class="row" *ngIf="recherche==false">
+    <ng-container *ngFor="let item of productList">
+      <div class="card col-md-3">
+        <img src="{{item.image}}" alt="">
+        <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
+        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+        <p><strong>Prix:</strong> {{item.price}} € </p>
+        <button class="btn btn-primary" (click)=addtocart(item.id,4)>Ajouter au panier</button>
+      </div>
+    </ng-container>
+
+  </div>
+
+  <div class="row"*ngIf="recherche==true">
+    <ng-container *ngFor="let item of elementTrouve">
+      <div class="card col-md-3">
+        <img src="{{item.image}}" alt="">
+        <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
+        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+        <p><strong>Prix:</strong> {{item.price}} € </p>
+        <button class="btn btn-primary" (click)=addtocart(item.id,4) >Ajouter au panier</button>
+      </div>
+    </ng-container>
+  </div>
+  </div>
