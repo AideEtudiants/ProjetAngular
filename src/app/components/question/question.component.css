@@ -1,3 +1,9 @@
+/*en-tete*/
+header {
+    background: #87c8d1;
+    width: auto;
+}
+
 /*container*/
 .page-wrap {
     background: #fff;
@@ -16,8 +22,7 @@
      margin-right: auto;
      margin-left: auto;
      box-shadow: 0 0 6px rgb(133, 165, 101);
-
- }
+}
 
 /*logo*/
 #logo {
@@ -40,6 +45,10 @@ ul {
     text-align: center;
 }
 
+ul li:hover a{
+  color: white;
+}
+
 li {
     display: inline;
 }
@@ -55,19 +64,4 @@ li a {
 
 li a:hover:not(.active) {
     background-color: red;
-}
-
-textarea {
-    width: 500px;
-    height: 120px;
-  }
-
-  input{
-    width: 400px;
-    height: 30px;
-  }
-
-  .caroussel img {
-    width: 500px;
-    height: 350px;
 }

@@ -1,4 +1,6 @@
-<img id= "logo" src= "./assets/logo.jpg" alt>
+<header id= "header">
+
+  <img id= "logo" src= "./assets/logo.png" alt>
 
 <div>
   <app-barre-de-recherche></app-barre-de-recherche>
@@ -7,14 +9,12 @@
 <br>
 
 <div class="container page-wrap">
-  <header id= "header">
     <ul>
       <li><a href= ""> <span>ACCUEIL</span></a></li>
       <li class= "active"><a href= "/produits"> <span>OFFRES</span></a></li>
       <li><a href= "cours"> <span>AIDES AUX DEVOIRS</span></a></li>
       <li><a href= "forum"> <span>FORUM</span></a></li>
     </ul>
-  </header>
 </div>
 
 
@@ -31,7 +31,7 @@
   </div>
 </div>
 <br>
-<div class="container" *ngIf="!filter">
+<div class="container2" *ngIf="!filter">
 <div class="row">
       <ng-container *ngFor="let item of productList">
           <div class="card col-md-3">
@@ -58,3 +58,4 @@
           </ng-container>
       </div>
       </div>
+</header>

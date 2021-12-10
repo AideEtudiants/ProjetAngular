@@ -1,3 +1,9 @@
+/*en-tete*/
+header {
+    background: #87c8d1;
+    width: auto;
+}
+
 /*container*/
 .page-wrap {
     background: #fff;
@@ -16,8 +22,7 @@
      margin-right: auto;
      margin-left: auto;
      box-shadow: 0 0 6px rgb(133, 165, 101);
-
- }
+}
 
 /*logo*/
 #logo {
