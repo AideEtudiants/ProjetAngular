@@ -1,3 +1,9 @@
+/*en-tete*/
+header {
+    background: #87c8d1;
+    width: auto;
+}
+
 /*container*/
 .page-wrap {
     background: #fff;
@@ -37,6 +43,10 @@ ul {
     font: inherit;
     font-size: 130%;
     text-align: center;
+}
+
+ul li:hover a{
+  color: white;
 }
 
 li {
@@ -122,7 +132,7 @@ img {
 }
 
 .caroussel_diapo input[type=radio]:checked + label {
-    background: hsl(203,77%,61%);
+    background: hsl(180,77%,61%);
 }
 
 .caroussel_diapo label{

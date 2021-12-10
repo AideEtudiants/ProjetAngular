@@ -40,6 +40,10 @@ ul {
     text-align: center;
 }
 
+ul li:hover a{
+  color: white;
+}
+
 li {
     display: inline;
 }
