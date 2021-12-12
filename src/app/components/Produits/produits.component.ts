@@ -5,8 +5,12 @@ import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../services/cart/cart.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { Cart } from 'src/app/Entity/cartEntity';
-import { Router } from '@angular/router';
-
+import { RechercheService } from 'src/app/services/rechercheService.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { map, startWith } from 'rxjs/operators';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-produits',
@@ -15,26 +19,62 @@ import { Router } from '@angular/router';
 })
 export class ProduitsComponent implements OnInit {
   productList : ProductEntity [];
-  productFiltredList : ProductEntity [];     
-  filter: boolean =false;    
+  productFiltredList : ProductEntity [];
+  filter: boolean =false;
   public totalItem : number ;
   public searchTerm !: string;
-
+  myControl = new FormControl();
+  options: any=[];
+  data:any='';
+  elementTrouve:any=[];
+  filteredOptions: Observable<string[]>;
   productListSelect: boolean ;
   constructor(
       protected productService : ProductService,
       protected toastService : ToastrService,
       protected cartService : CartService,
       protected router: Router,
+      private serviceRecherche : RechercheService,
+      private route: ActivatedRoute,
+      public dialog: MatDialog
     ) {}
 
     ngOnInit(): void {
-        this.getAllProducts();    
-        this.totalProductInCart();    
+        this.getAllProducts();
+        this.totalProductInCart();
+
+        this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
+            this.options= data.map(p=>p.name);
+            console.log(this.options);
+            });
+
+        this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value)),
+        );
+    }
+
+ private _filter(value: string): string[] {
+         const filterValue = value.toLowerCase();
+         return this.options.filter(option => option.toLowerCase().includes(filterValue));
+         }
+    rechercher(){
+    this.serviceRecherche.rechercheProduct(this.data).subscribe(
+    (data:ProductEntity[])=>{
+    this.elementTrouve= data;
+    console.log(this.elementTrouve);
+    this.gotoElementTrouve();
+    this.filter= true;
+    }
+    );
+
+    }
+    gotoElementTrouve() {
+    this.router.navigate(['/produits']);
     }
     totalProductInCart(){
       this.cartService.getProducts(4)
-       .subscribe(res=>{    
+       .subscribe(res=>{
          this.totalItem = res?.length;
          console.log(this.totalItem)
         })
@@ -82,10 +122,10 @@ export class ProduitsComponent implements OnInit {
             this.cartService.addtoCart(cart).subscribe(res=>{
                 this.productListSelect =  res;
                 this.totalProductInCart();
-                
+
             });
         // }
-        
+
     }
 
     findProductByCategory(idCategorie:number){

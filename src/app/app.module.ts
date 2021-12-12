@@ -24,6 +24,7 @@ import { UserService } from './services/user/user-service.service';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { AppComponent } from './components/app/app.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -64,7 +65,8 @@ const routes: Routes = [
     MatInputModule,
     RouterModule.forRoot(routes),
     CommonModule,
-    ToastrModule.forRoot()// ToastrModule added
+    ToastrModule.forRoot(),// ToastrModule added
+    MatDialogModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
