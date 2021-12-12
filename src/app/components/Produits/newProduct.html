@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Ajouter un nouveau produit</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Prix du produit</mat-label>
+    <input matInput [(ngModel)]="data.price">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="data.description">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Categorie</mat-label>
+    <mat-select>
+        <mat-option value="1">Livre</mat-option>
+        <mat-option value="2">Equipement</mat-option>
+        <mat-option value="3">Autre</mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Statut</mat-label>
+    <mat-select>
+        <mat-option value="1">Neuf</mat-option>
+        <mat-option value="2">Reconditionné en bon état</mat-option>
+      </mat-select>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-button cdkFocusInitial>Valider</button>
+</div>
+

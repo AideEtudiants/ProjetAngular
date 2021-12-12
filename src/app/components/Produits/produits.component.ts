@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ProductEntity } from '../../Entity/ProductEntity';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../services/cart/cart.service';
@@ -142,4 +142,31 @@ export class ProduitsComponent implements OnInit {
         this.router.navigate(['/cart']);
     }
 
+    newProduct(): void {
+        const dialogRef = this.dialog.open(NewProduct, {
+          width: '250px',
+          //data: {name: this.name, animal: this.animal},
+        });
+    
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+          //this.animal = result;
+        });
+      }
+
 }
+
+@Component({
+    selector: 'newProduct',
+    templateUrl: 'newProduct.html',
+  })
+  export class NewProduct {
+    constructor(
+      public dialogRef: MatDialogRef<NewProduct>,
+      @Inject(MAT_DIALOG_DATA) public data: ProductEntity,
+    ) {}
+  
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
+  }

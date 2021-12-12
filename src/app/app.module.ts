@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AccueilComponent } from './components/accueil/accueil.component';
-import { ProduitsComponent } from './components/Produits/produits.component';
+import { NewProduct,ProduitsComponent } from './components/Produits/produits.component';
 import { QuestionComponent } from './components/question/question.component';
 import { CartComponent } from './components/cart/cart.component';
 import { UserService } from './services/user/user-service.service';
@@ -50,7 +50,8 @@ const routes: Routes = [
     UserListComponent,
     UserFormComponent,
     QuestionComponent,
-    CartComponent
+    CartComponent,
+    NewProduct
   ],
   imports: [
     BrowserModule,
@@ -66,7 +67,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     CommonModule,
     ToastrModule.forRoot(),// ToastrModule added
-    MatDialogModule
+    MatDialogModule,
+    
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
