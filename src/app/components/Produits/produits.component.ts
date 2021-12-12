@@ -75,14 +75,17 @@ export class ProduitsComponent implements OnInit {
 
         });
     }
-    addtocart(idProduct : number, idUser: number){
-        let cart = new Cart(idProduct,idUser);
-        console.log(cart)
-        this.cartService.addtoCart(cart).subscribe(res=>{
-            this.productListSelect =  res;
-            this.totalProductInCart();
-            
-         });
+
+    addtocart(produit : ProductEntity){
+        // if(produit.quantity <= this.totalItem){
+            let cart = new Cart(produit.id,produit.userCode);
+            this.cartService.addtoCart(cart).subscribe(res=>{
+                this.productListSelect =  res;
+                this.totalProductInCart();
+                
+            });
+        // }
+        
     }
 
     findProductByCategory(idCategorie:number){
@@ -97,6 +100,6 @@ export class ProduitsComponent implements OnInit {
     }
     openCart(){
         this.router.navigate(['/cart']);
-      }
+    }
 
 }
