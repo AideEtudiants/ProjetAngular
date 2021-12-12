@@ -1,44 +1,45 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { CartService } from 'src/app/services/cart/cart.service';
+import { ProductService } from 'src/app/services/product/product.service';
 import { RechercheService } from 'src/app/services/search/rechercheService.service';
 import { ProductEntity } from '../../Entity/ProductEntity';
+import { ProduitsComponent } from '../Produits/produits.component';
 
  @Component({
   selector: 'app-barre-de-recherche',
   templateUrl: './barre-de-recherche.component.html',
   styleUrls: ['./barre-de-recherche.component.css']
 })
-export class BarreDeRechercheComponent implements OnInit {
+export class BarreDeRechercheComponent  implements OnInit {
   myControl = new FormControl();
   options: any=[];
   data:any='';
   filteredOptions: Observable<string[]>;
-  public totalItem : number = 0;
 
-    constructor
-    (private serviceRecherche : RechercheService,
-     private router: Router,
-     private cartService : CartService
-    ){}
+  constructor(
+    protected serviceRecherche : RechercheService,
+    protected router: Router,
+    protected cartService : CartService,
+    protected productService : ProductService,
+    protected toastService : ToastrService,
+  ){
+  }
 
-    ngOnInit() {
-      this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
-        this.options= data.map(p=>p.name);
-        console.log(this.options);
-      });
-      this.cartService.getProducts(4)
-      .subscribe(res=>{
-        this.totalItem = res?.length;
-      })
-
+  ngOnInit() {
+    this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
+      this.options= data.map(p=>p.name);
+      console.log(this.options);
+    });
     this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value)),
-    );
+    startWith(''),
+    map(value => this._filter(value)),
+   );
+
   }
 
   private _filter(value: string): string[] {
@@ -49,9 +50,7 @@ export class BarreDeRechercheComponent implements OnInit {
     this.serviceRecherche.rechercheProduct(this.data).subscribe();
     console.log(this.data)
   }
-  openCart(){
-    this.router.navigate(['/cart']);
-  }
+
 }
 
 

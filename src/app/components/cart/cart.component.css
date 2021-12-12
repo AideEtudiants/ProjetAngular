@@ -16,7 +16,12 @@
 
 h4,
 h6 {
-    font-weight: 400;
+    font-weight: 500;
+    font-size: medium;
+}
+h5 {
+    font-weight: 500;
+    font-size:large ;
 }
 
 .center {

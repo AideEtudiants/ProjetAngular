@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../services/cart/cart.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { Cart } from 'src/app/Entity/cartEntity';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,32 +16,32 @@ import { Cart } from 'src/app/Entity/cartEntity';
 export class ProduitsComponent implements OnInit {
   productList : ProductEntity [];
   productFiltredList : ProductEntity [];     
-  filter: boolean =false;
+  filter: boolean =false;    
+  public totalItem : number ;
+  public searchTerm !: string;
 
   productListSelect: boolean ;
   constructor(
-      public productService : ProductService,
-      public toastService : ToastrService,
-      private cartService : CartService
-  ) { }
+      protected productService : ProductService,
+      protected toastService : ToastrService,
+      protected cartService : CartService,
+      protected router: Router,
+    ) {}
 
     ngOnInit(): void {
-        this.getAllProducts();
-        this.cartService.getProducts(4)
+        this.getAllProducts();    
+        this.totalProductInCart();    
+    }
+    totalProductInCart(){
+      this.cartService.getProducts(4)
        .subscribe(res=>{    
          this.totalItem = res?.length;
          console.log(this.totalItem)
         })
     }
-    
-  public totalItem : number = 0;
-  public searchTerm !: string;
-
-  search(event:any){
-    // this.searchTerm = (event.target as HTMLInputElement).value;
-    // console.log(this.searchTerm);
-    // this.cartService.search.next(this.searchTerm);
-  }
+    public get getTotalItem(){
+        return this.totalItem;
+    }
     getAllProducts(){
         this.productService.getAllProducts()
         . subscribe ((data :ProductEntity [] )=>{
@@ -57,12 +58,12 @@ export class ProduitsComponent implements OnInit {
         this.productService.RemoveProduct(idProduct)
         .subscribe({
             next :(data)=>{
+                this.getAllProducts();
                 this.toastService.success('Le produit est bien été supprimé')
             },
             error :()=>  this.toastService.error('Erreur lors de la suppression')
 
         });
-
     }
     addProduct(product : ProductEntity){
         this.productService.addProduct(product)
@@ -73,24 +74,16 @@ export class ProduitsComponent implements OnInit {
             error :()=>  this.toastService.error('Erreur lors de lajout')
 
         });
-
     }
     addtocart(idProduct : number, idUser: number){
         let cart = new Cart(idProduct,idUser);
         console.log(cart)
         this.cartService.addtoCart(cart).subscribe(res=>{
             this.productListSelect =  res;
-            console.log(this.productListSelect)
+            this.totalProductInCart();
+            
          });
-      }
-    // filter(category:string){
-    //     this.filterCategory = this.productList
-    //     .filter((a:any)=>{
-    //       if(a.category == category || category==''){
-    //         return a;
-    //       }
-    //     })
-    //   }
+    }
 
     findProductByCategory(idCategorie:number){
         this.productService.findProductByCategory(idCategorie)
@@ -100,15 +93,10 @@ export class ProduitsComponent implements OnInit {
                 this.filter= true;
             },
             error :()=>  this.toastService.error('Erreur')
-
         });
     }
-
-    // getproductList():ProductEntity[]{
-    //     return this.filter ? this.productFiltredList : this.productList ;
-    // }
-
-
-
+    openCart(){
+        this.router.navigate(['/cart']);
+      }
 
 }

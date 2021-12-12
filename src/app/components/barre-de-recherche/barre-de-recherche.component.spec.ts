@@ -1,8 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BarreDeRechercheComponent } from './barre-de-recherche.component';
-
-
 
 describe('BarreDeRechercheComponent', () => {
   let component: BarreDeRechercheComponent;

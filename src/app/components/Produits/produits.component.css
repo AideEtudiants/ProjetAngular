@@ -43,7 +43,11 @@ header {
     height: auto;
     display: block;
 }
-
+#cart{
+  float: right;
+  display: inline-flex;
+  
+}
 /*menu*/
 ul {
     list-style-type: none;
@@ -193,4 +197,8 @@ li a:hover:not(.active) {
 .card img:hover {
   transition: 0.3s ease-in-out;
   transform: scale(1.1);
+}
+button{
+  float:right;
+
 }

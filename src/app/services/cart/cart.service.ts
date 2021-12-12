@@ -8,8 +8,8 @@ import { Cart } from 'src/app/Entity/cartEntity';
 })
 export class CartService {
   constructor(private http:HttpClient) { }
-  getProducts(idUser: number): Observable<Cart[]>{
-    return this.http.post<Cart[]>("http://localhost:8080/cart/list",idUser);
+  getProducts(idUser: number): Observable<any>{
+    return this.http.post<any>("http://localhost:8080/cart/list",idUser);
   }
   addtoCart(cart : Cart) :Observable<any>
   {
@@ -18,10 +18,10 @@ export class CartService {
   getTotalPrice(idUser: number) :Observable<number>{
     return this.http.post<number>("http://localhost:8080/cart/totalPrice",idUser);
   }
-  removeCartItem(idProduct:number):Observable<void>{
-    return this.http.post<void>(`http://localhost:8080/cart/delete`,idProduct);
+  removeCartItem(id : number){
+    return this.http.post(`http://localhost:8080/cart/delete`,id);
   }
-  removeAllCart():Observable<void>{
-    return this.http.delete<void>(`http://localhost:8080/cart/deleteAll`);
+  removeAllCart(idUser: number):Observable<any>{
+    return this.http.post<any>(`http://localhost:8080/cart/deleteAll`,idUser);
   }
 }

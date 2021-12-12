@@ -6,6 +6,11 @@
   <app-barre-de-recherche></app-barre-de-recherche>
 </div>
 
+<button id="cart" (click)="openCart()" class="btn btn-primary">
+  <i style="font-size: 50px;" class="fas fa-cart-arrow-down"></i>
+  <div style="font-size: 15px;" class="badge bg-danger">{{totalItem}}</div>
+</button>  
+
 <br>
 
 <div class="container page-wrap">

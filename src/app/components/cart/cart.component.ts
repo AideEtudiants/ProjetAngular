@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../services/cart/cart.service';
-
 
 @Component({
   selector: 'app-cart',
@@ -12,30 +12,55 @@ export class CartComponent implements OnInit {
 
   public products : any = [];
   public grandTotal !: number;
-  constructor(private cartService : CartService,private router: Router) { }
+  isEmptyCart: boolean = false;
+  constructor(
+    private cartService : CartService,
+    private router: Router,
+    private toastService : ToastrService
+  ) { }
 
   ngOnInit(): void {
-    this.cartService.getProducts(4)
-    .subscribe(res=>{
-      this.products = res;
-    });
+    this.getAllProductInCart();
     this.cartService.getTotalPrice(4)
     .subscribe(res=>{
        this.grandTotal =  res;
     });
 
   }
-  removeItem(item: any){
-    this.cartService.removeCartItem(item);
+  getAllProductInCart(){
+    this.cartService.getProducts(4)
+    .subscribe(res=>{
+      this.products = res;
+    });
+  }
+  removeItem(){
+    this.cartService.removeCartItem(14)
+    .subscribe({
+      next :(data)=>{
+        this.getAllProductInCart();
+        this.toastService.success('Le produit est bien été supprimé du panier')
+      },
+      error :()=>  this.toastService.error('Erreur lors de la suppression')
+
+  });
   }
   emptycart(){
-    this.cartService.removeAllCart();
+    this.cartService.removeAllCart(4)
+    .subscribe({
+      next :(data)=>{
+        this.getAllProductInCart();
+        this.isEmptyCart= true;
+        this.toastService.success('Les produits ont bien été supprimés du panier')
+      },
+      error :()=>  this.toastService.error('Erreur lors de la suppression')
+
+  });
   }
   openProducts(){
     this.router.navigate(['/produits']);
   }
-  getCategory(categoryCode : number){
-
+  getCategory(categoryCode : number) : string {
+     return categoryCode == 1 ? " Livre" : "Equipement" ;
   }
 
 }
