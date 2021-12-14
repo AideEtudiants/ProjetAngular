@@ -18,8 +18,8 @@ export class CartService {
   getTotalPrice(idUser: number) :Observable<number>{
     return this.http.post<number>("http://localhost:8080/cart/totalPrice",idUser);
   }
-  removeCartItem(id : number){
-    return this.http.post(`http://localhost:8080/cart/delete`,id);
+  removeCartItem(cart : Cart){
+    return this.http.post(`http://localhost:8080/cart/delete`,cart);
   }
   removeAllCart(idUser: number):Observable<any>{
     return this.http.post<any>(`http://localhost:8080/cart/deleteAll`,idUser);

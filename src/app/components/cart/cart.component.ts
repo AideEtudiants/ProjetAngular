@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Cart } from 'src/app/Entity/cartEntity';
 import { CartService } from '../../services/cart/cart.service';
 
 @Component({
@@ -33,8 +34,9 @@ export class CartComponent implements OnInit {
       this.products = res;
     });
   }
-  removeItem(){
-    this.cartService.removeCartItem(14)
+  removeItem(idProduit : number ,idUser : number){
+    let cart  = new Cart(idProduit,idUser)
+    this.cartService.removeCartItem(cart)
     .subscribe({
       next :(data)=>{
         this.getAllProductInCart();

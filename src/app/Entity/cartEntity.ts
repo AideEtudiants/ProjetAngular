@@ -4,8 +4,7 @@ export class Cart{
     idUser: number  = 4;
     constructor(idPrduct : number ,idUser:number){
         this.idProduct =idPrduct ;
-        this.idUser=idUser;
-     
+        this.idUser=idUser;   
     }
    
 
