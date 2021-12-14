@@ -6,7 +6,6 @@ export class ProductEntity{
     description!: string;
     statusCode!: number;
     categoryCode!: number;
-    userCode!: number;
     availability!: number;
     price: number;
     quantity : number;

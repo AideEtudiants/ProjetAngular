@@ -117,15 +117,12 @@ export class ProduitsComponent implements OnInit {
     }
 
     addtocart(produit : ProductEntity){
-        // if(produit.quantity <= this.totalItem){
-            let cart = new Cart(produit.id,produit.userCode);
-            this.cartService.addtoCart(cart).subscribe(res=>{
-                this.productListSelect =  res;
-                this.totalProductInCart();
+        let cart = new Cart(produit.id,4);
+        this.cartService.addtoCart(cart).subscribe(res=>{
+            this.productListSelect =  res;
+            this.totalProductInCart();
 
-            });
-        // }
-
+        });
     }
 
     findProductByCategory(idCategorie:number){
