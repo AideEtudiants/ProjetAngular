@@ -141,7 +141,7 @@ export class ProduitsComponent implements OnInit {
 
     newProduct(): void {
         const dialogRef = this.dialog.open(NewProduct, {
-          width: '250px',
+          width: '600px',
           //data: {name: this.name, animal: this.animal},
         });
     
