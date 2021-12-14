@@ -34,6 +34,12 @@
         <mat-option value="1">Neuf</mat-option>
         <mat-option value="2">Reconditionné en bon état</mat-option>
       </mat-select>
+
+      <label>Image du produit</label>
+      <input [(ngModel)]="data.image" name="img"
+      type="file" (change)="onFileChanged($event)"
+      #fileInput>
+      
   
 
 

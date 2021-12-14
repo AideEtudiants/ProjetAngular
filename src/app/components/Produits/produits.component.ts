@@ -157,6 +157,7 @@ export class ProduitsComponent implements OnInit {
         });
       }
 
+
 }
 
 @Component({
@@ -172,4 +173,8 @@ export class ProduitsComponent implements OnInit {
     onNoClick(): void {
       this.dialogRef.close();
     }
+
+    onFileChanged(event) {
+        const file = event.target.files[0]
+      }
   }
