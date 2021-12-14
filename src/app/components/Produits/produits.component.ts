@@ -29,6 +29,8 @@ export class ProduitsComponent implements OnInit {
   elementTrouve:any=[];
   filteredOptions: Observable<string[]>;
   productListSelect: boolean ;
+  NewProduct :any ={};
+
   constructor(
       protected productService : ProductService,
       protected toastService : ToastrService,
@@ -142,11 +144,15 @@ export class ProduitsComponent implements OnInit {
     newProduct(): void {
         const dialogRef = this.dialog.open(NewProduct, {
           width: '600px',
-          //data: {name: this.name, animal: this.animal},
+          data: {},
         });
     
         dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');
+
+            if(result!=null){
+                this.NewProduct = result;
+            }
+          console.log(this.NewProduct);
           //this.animal = result;
         });
       }
