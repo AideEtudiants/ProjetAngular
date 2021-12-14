@@ -29,7 +29,17 @@ export class ProduitsComponent implements OnInit {
   elementTrouve:any=[];
   filteredOptions: Observable<string[]>;
   productListSelect: boolean ;
-  NewProduct :any ={};
+  NewProduct :ProductEntity={
+      id: 0,
+      name: '',
+      image: '',
+      description: '',
+      statusCode: 0,
+      categoryCode: 0,
+      availability: 0,
+      price: 0,
+      quantity: 0
+  };
 
   constructor(
       protected productService : ProductService,
@@ -151,13 +161,13 @@ export class ProduitsComponent implements OnInit {
 
             if(result!=null){
                 this.NewProduct = result;
+                //this.productService.addProduct(this.NewProduct).subscribe();
+                //this.gotoElementTrouve();
             }
           console.log(this.NewProduct);
-          //this.animal = result;
+          
         });
       }
-
-
 }
 
 @Component({
