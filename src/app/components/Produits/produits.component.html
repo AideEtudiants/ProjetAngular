@@ -68,27 +68,6 @@
   </ul>
 
 </nav>
-<!-- 
-<button id="cart" (click)="openCart()" class="btn btn-primary">
-  <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
-  
-</button>
-
-<br>
-
-<button class="btn btn-primary b" (click) = "newProduct()" >Nouveau produit</button>
-<div class="container page-wrap">
-    <ul>
-      <li><a href= ""> <span>ACCUEIL</span></a></li>
-      <li class= "active"><a href= "/produits"> <span>OFFRES</span></a></li>
-      <li><a href= "cours"> <span>AIDES AUX DEVOIRS</span></a></li>
-      <li><a href= "forum"> <span>FORUM</span></a></li>
-    </ul>
-</div> -->
-
-
-<br>
-
 <div class="wrapper">
   <div class="sidebar">
       <ul>
@@ -100,8 +79,10 @@
   </div>
 </div>
 <br>
+<button class="search-btn" style="float:left; margin-left: 0%;" (click) = "newProduct()" >Nouveau produit</button>
+<br>
+<br>
 <div class="container page-wrap" *ngIf="!filter">
-
 <div class="row">
       <ng-container *ngFor="let item of productList">
           <div class="card col-md-3">
