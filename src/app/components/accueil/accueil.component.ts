@@ -17,5 +17,6 @@ export class AccueilComponent implements OnInit {
   changementDePage() {
     this.router.navigate(['produits']);
   }
+  
 
 }

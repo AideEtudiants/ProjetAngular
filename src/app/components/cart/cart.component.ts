@@ -32,6 +32,7 @@ export class CartComponent implements OnInit {
     this.cartService.getProducts(4)
     .subscribe(res=>{
       this.products = res;
+      
     });
   }
   removeItem(idProduit : number ,idUser : number){
@@ -51,8 +52,8 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllCart(4)
     .subscribe({
       next :(data)=>{
-        this.getAllProductInCart();
         this.isEmptyCart= true;
+        this.getAllProductInCart();    
         this.toastService.success('Les produits ont bien été supprimés du panier')
       },
       error :()=>  this.toastService.error('Erreur lors de la suppression')

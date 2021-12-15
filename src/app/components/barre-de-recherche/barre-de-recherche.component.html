@@ -1,33 +1,34 @@
-
-<div class= "searchbar" style= "margin-left: 530px; margin-top: -68px;padding-bottom: 60px;">
-  <input
-         placeholder="Rechercher"
-         matInput
-         [formControl]="myControl"
-         [matAutocomplete]="auto"
-         [(ngModel)]=" data"
-          >   
-          <button class="btn btn-primary b"  (click)="rechercher()"> Rechercher </button>
-<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+<nav class = "navbar">
+  <div class="nav">
+    <img class= "brand-logo"  src= "./assets/logo.png" alt> 
+    <div class = "nav-items" >
+      <div class="searchbar" style= "margin-left: 500px; margin-top: -1px;" >
+        <input
+        placeholder="Rechercher"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+        [(ngModel)]=" data"
+        class = "search-box"
+        >
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
         <mat-option
-         *ngFor="let option of filteredOptions | async"
-         [value]="option">
+          *ngFor="let option of filteredOptions | async"
+          [value]="option">
           {{option}}
-        </mat-option> 
-</mat-autocomplete>
+        </mat-option>
+        </mat-autocomplete>
+        <button class="search-btn"  (click)="rechercher()"> Rechercher </button>
+      </div>
+      <a href="#"><img src="./assets/user.png"></a>
 
-  <div style="margin-top: -30px;margin-left: 16px;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="#999" class="bi bi-search" viewBox="0 0 16 16">
-      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-    </svg>
+    </div>   
   </div>
-  <div style="margin-top: -25px;margin-left: 320px;cursor: pointer;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="#999" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-      <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-    </svg>
-  </div>
-</div>
+  <ul class="links-container">
+    <li class= "link-item"><a class= "link" href= ""> ACCUEIL</a></li>
+    <li class= "link-item" ><a class= "link" href= "/produits"> OFFRES</a></li>
+    <li class= "link-item"><a class= "link" href= "cours"> AIDES AUX DEVOIRS</a></li>
+    <li class= "link-item"><a class= "link" href= "forum"> FORUM</a></li>
+  </ul>
 
-
-
-
+</nav>

@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AvailabilityEnum } from 'src/app/enum/availability.enum';
 
 @Component({
   selector: 'app-produits',
@@ -66,7 +67,7 @@ export class ProduitsComponent implements OnInit {
         );
     }
 
- private _filter(value: string): string[] {
+   private _filter(value: string): string[] {
          const filterValue = value.toLowerCase();
          return this.options.filter(option => option.toLowerCase().includes(filterValue));
          }
@@ -130,6 +131,7 @@ export class ProduitsComponent implements OnInit {
 
     addtocart(produit : ProductEntity){
         let cart = new Cart(produit.id,4);
+        console.log(cart)
         this.cartService.addtoCart(cart).subscribe(res=>{
             this.productListSelect =  res;
             this.totalProductInCart();
@@ -167,7 +169,17 @@ export class ProduitsComponent implements OnInit {
           console.log(this.NewProduct);
           
         });
-      }
+    }
+    public getAvailability(availability : number) : String{
+        if(availability == AvailabilityEnum.disponible ){
+            return "Disponible";
+        }else if (availability == AvailabilityEnum.réservé){
+            return "Réservé" ;
+        }else {
+            return " vendu";
+        }     
+
+    }
 }
 
 @Component({
