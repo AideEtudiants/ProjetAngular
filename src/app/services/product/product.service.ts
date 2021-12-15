@@ -23,7 +23,7 @@ export class ProductService {
     return this.http.delete<void>(`http://localhost:8080/product/delete/${idProduct}`);
   }
   addProduct(newProduct:ProductEntity):Observable<ProductEntity>{
-    return this.http.post<ProductEntity>("http://localhost:8080/product",newProduct);
+    return this.http.post<ProductEntity>("http://localhost:8080/product/create",newProduct);
   }
 
   findProductByCategory(idCategorie:number) : Observable<ProductEntity[]>{
