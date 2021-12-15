@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BarreDeRechercheComponent } from './components/barre-de-recherche/barre-de-recherche.component';
 import { ForumComponent } from './components/forum/forum.component';
-import { CoursComponent } from './components/cours/cours.component';
+import { classComponent } from './components/class/class.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +30,7 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'produits', component: ProduitsComponent },
-  { path: 'cours', component: CoursComponent },
+  { path: 'cours', component: classComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'users', component: UserListComponent },
   { path: 'adduser', component: UserFormComponent },
@@ -48,7 +48,7 @@ const routes: Routes = [
     BarreDeRechercheComponent,
     AccueilComponent,
     ForumComponent,
-    CoursComponent,
+    classComponent,
     ProduitsComponent,
     UserListComponent,
     UserFormComponent,

@@ -9,7 +9,7 @@
           >   
           <button class="btn btn-primary b"  (click)="rechercher()"> Rechercher </button>
 
-<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+<mat-autocomplete auntoActiveFirstOption #auto="matAutocomplete">
         <mat-option
           *ngFor="let option of filteredOptions | async"
           [value]="option">
