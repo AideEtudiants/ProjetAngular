@@ -3,10 +3,10 @@
   <div class="container">
     <h1 align="center">Cours programmés</h1>
     <div class="row">
-          <ng-container *ngFor="let cours of coursList">
+          <ng-container *ngFor="let cours of classList">
             <ul class="list-group">
                 <li [ngClass]="{'list-group-item': true,'list-group-item-success': true}">           
-          <h4>{{cours.name}}<p align='right'>{{ cours.Date}} </p></h4>
+          <h4>{{cours.name}}<p align='right'>{{ cours.startdate}} </p></h4>
           <p> {{cours.description}}</p>
   <button class="btn btn-success" (click)="ParticiperCours()">Participer</button> 
                 </ul>

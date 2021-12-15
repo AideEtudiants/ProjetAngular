@@ -1,44 +1,45 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { CoursEntity } from '../../Entity/coursEntity';
 import { RechercheService } from 'src/app/services/rechercheService.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { CoursService } from 'src/app/services/cours/coursService.service';
+import { classService } from 'src/app/services/class/classService.service';
 import { ToastrService } from 'ngx-toastr';
+import { classEntity } from 'src/app/Entity/classEntity';
 
 
 @Component({
-  selector: 'app-cours',
-  templateUrl: './cours.component.html',
-  styleUrls: ['./cours.component.css']
+  selector: 'app-class',
+  templateUrl: './class.component.html',
+  styleUrls: ['./class.component.css']
 })
-export class CoursComponent implements OnInit {
-  coursList : CoursEntity[];
 
-  constructor(protected CoursService : CoursService, protected toastService : ToastrService) { }
+export class classComponent implements OnInit {
+  classList : classEntity[];
+
+  constructor(protected classService : classService, protected toastService : ToastrService) { }
 
   ngOnInit(): void {
   }
 
-  addCours(cours : CoursEntity){
-    this.CoursService.addCours(cours)
+  addclass(classe:classEntity){
+    this.classService.addClass(classe)
     .subscribe({
         next :(data)=>{
-            this.toastService.success('Le cours a ete ajouter')
+            this.toastService.success('Le class a ete ajouter')
         },
         error :()=>  this.toastService.error('Erreur lors de lajout')
 
     });
 }
 
-getAllCours(){
-  this.CoursService.getAllCours()
-  . subscribe ((data :CoursEntity [] )=>{
-      this.coursList = data;
+getAllclass(){
+  this.classService.getAllClass()
+  . subscribe ((data :classEntity [] )=>{
+      this.classList = data;
       },
   (error:HttpErrorResponse)=>{
       alert(error.message)
@@ -46,8 +47,7 @@ getAllCours(){
       }
   );
 }
-ParticiperCours(){
 
-}
+ParticiperCours(){}
 
 }

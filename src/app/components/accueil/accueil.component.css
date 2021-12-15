@@ -103,8 +103,6 @@ li a:hover:not(.active) {
 }
 
 
-<<<<<<< Updated upstream
-=======
 /*galerie images
 body {
     display: flex;
@@ -193,4 +191,3 @@ img {
 .caroussel_diapo #carou_trois:checked ~ .contenu_carou .caroussel img:nth-child(3) {transform:rotateY(90deg) translateZ(540px) scale(1);opacity:1}
 .caroussel_diapo #carou_quatre:checked ~ .contenu_carou .caroussel img:nth-child(4) {transform:rotateY(135deg) translateZ(540px) scale(1);opacity:1}
 */
->>>>>>> Stashed changes
