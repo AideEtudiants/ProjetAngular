@@ -2,25 +2,26 @@
 
   <h1 mat-dialog-title>Ajouter un nouveau produit</h1>
 
-    <label>Nom</label>
+    <mat-label>Nom</mat-label>
     <input [(ngModel)]="data.name" name="nom">
- 
 
-    <label>Prix du produit</label>
-    <input [(ngModel)]="data.price" name="prix">
+    
+
+    <mat-label>Prix du produit</mat-label>
+    <input matInput [(ngModel)]="data.price" name="prix">
 
  
-    <label>Description</label>
+    <mat-label>Description</mat-label>
     <input [(ngModel)]="data.description" name="desc">
 
 
   
-    <label>Quantité</label>
+    <mat-label>Quantité</mat-label>
     <input [(ngModel)]="data.quantity" name="qte">
   
 
   
-    <label>Categorie</label>
+    <mat-label>Categorie</mat-label>
     <mat-select [(value)]="data.categoryCode" name="cat">
         <mat-option  value="1">Livre</mat-option >
         <mat-option value="2">Equipement</mat-option >
@@ -29,13 +30,13 @@
  
 
   
-    <label>Statut</label>
+    <mat-label>Statut</mat-label>
     <mat-select [(value)]="data.statusCode" name="stat">
         <mat-option value="1">Neuf</mat-option>
         <mat-option value="2">Reconditionné en bon état</mat-option>
       </mat-select>
 
-      <label>Image du produit</label>
+      <mat-label>Image du produit</mat-label>
       <input [(ngModel)]="data.image" name="img"
       type="file" (change)="onFileChanged($event)"
       #fileInput>
