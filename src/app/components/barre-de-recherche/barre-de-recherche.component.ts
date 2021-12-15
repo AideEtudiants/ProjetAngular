@@ -20,6 +20,7 @@ export class BarreDeRechercheComponent  implements OnInit {
   options: any=[];
   data:any='';
   filteredOptions: Observable<string[]>;
+  public totalItem : number ;
 
   constructor(
     protected serviceRecherche : RechercheService,
@@ -31,6 +32,7 @@ export class BarreDeRechercheComponent  implements OnInit {
   }
 
   ngOnInit() {
+    this.totalProductInCart();
     this.serviceRecherche.getAll().subscribe((data:ProductEntity[])=>{
       this.options= data.map(p=>p.name);
       console.log(this.options);
@@ -40,6 +42,13 @@ export class BarreDeRechercheComponent  implements OnInit {
     map(value => this._filter(value)),
    );
 
+  }
+  totalProductInCart(){
+    this.cartService.getProducts(4)
+     .subscribe(res=>{
+       this.totalItem = res?.length;
+       console.log(this.totalItem)
+      })
   }
 
   private _filter(value: string): string[] {
