@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
-
 import { HelloComponent } from './components/hello-component/hello-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,6 +24,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { AppComponent } from './components/app/app.component';
 import {MatDialogModule} from '@angular/material/dialog';
+
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
