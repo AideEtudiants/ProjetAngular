@@ -161,8 +161,8 @@ export class ProduitsComponent implements OnInit {
 
             if(result!=null){
                 this.NewProduct = result;
-                //this.productService.addProduct(this.NewProduct).subscribe();
-                //this.gotoElementTrouve();
+                this.productService.addProduct(this.NewProduct).subscribe();
+                this.gotoElementTrouve();
             }
           console.log(this.NewProduct);
           
@@ -175,6 +175,7 @@ export class ProduitsComponent implements OnInit {
     templateUrl: 'newProduct.html',
   })
   export class NewProduct {
+    selectedFile: File;
     constructor(
       public dialogRef: MatDialogRef<NewProduct>,
       @Inject(MAT_DIALOG_DATA) public data: ProductEntity,
@@ -185,6 +186,7 @@ export class ProduitsComponent implements OnInit {
     }
 
     onFileChanged(event) {
-        const file = event.target.files[0]
+        this.selectedFile = event.target.files[0].name
+        console.log(this.selectedFile);
       }
   }
