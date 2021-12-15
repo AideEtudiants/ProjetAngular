@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 export class AccueilComponent implements OnInit {
   
   constructor(
-   public  router :Router
+   public  router :Router,
+   public rout:Router
   ) { }
 
   ngOnInit(): void {
@@ -18,5 +19,9 @@ export class AccueilComponent implements OnInit {
     this.router.navigate(['produits']);
   }
   
+
+  seConnecter(){
+    this.rout.navigate(['/usersFrm']);
+  }
 
 }

@@ -24,6 +24,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { AppComponent } from './components/app/app.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { UserloginComponent } from './userlogin/userlogin.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,8 @@ const routes: Routes = [
   { path: 'adduser', component: UserFormComponent },
   { path: 'question', component: QuestionComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'usersFrm', component: UserFormComponent },
+  { path: 'login', component: UserloginComponent},
 
 ];
 
@@ -51,7 +54,8 @@ const routes: Routes = [
     UserFormComponent,
     QuestionComponent,
     CartComponent,
-    NewProduct
+    NewProduct,
+    UserloginComponent,
   ],
   imports: [
     BrowserModule,
