@@ -25,14 +25,7 @@ export class classComponent implements OnInit {
  
   options: any=[];
   data:any=''
-  newclasse:ClassEntity={
-  id:0,
-  userId: 4,
-  name: '',
-  description: '',
-  startdate : ''
-
-  };
+  newclasse:ClassEntity = new ClassEntity(null,4,"","","");
   constructor(protected classService : ClassService,
     protected toastService : ToastrService,
     protected router: Router,
@@ -64,11 +57,12 @@ AjoutClass(){
 
     if(result!=null){
         this.newclasse = result;
+        console.log(this.newclasse);
         this.classService.addClass(this.newclasse).subscribe();
         this.getAllclass();
         this.router.navigate(['/cours']);
     }
-  console.log(this.newclasse);
+ 
 
 });
 }
