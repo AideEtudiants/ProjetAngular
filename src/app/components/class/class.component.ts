@@ -6,9 +6,10 @@ import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { classService } from 'src/app/services/class/classService.service';
 import { ToastrService } from 'ngx-toastr';
-import { classEntity } from 'src/app/Entity/classEntity';
+import { ClassService } from 'src/app/services/class/classService.service';
+import { ClassEntity } from 'src/app/Entity/ClassEntity';
+
 
 
 @Component({
@@ -18,14 +19,15 @@ import { classEntity } from 'src/app/Entity/classEntity';
 })
 
 export class classComponent implements OnInit {
-  classList : classEntity[];
+  classList : ClassEntity[];
 
-  constructor(protected classService : classService, protected toastService : ToastrService) { }
+  constructor(protected classService :ClassService, protected toastService : ToastrService) { }
 
   ngOnInit(): void {
+    this.getAllclass();
   }
 
-  addclass(classe:classEntity){
+  addclass(classe:ClassEntity){
     this.classService.addClass(classe)
     .subscribe({
         next :(data)=>{
@@ -38,8 +40,9 @@ export class classComponent implements OnInit {
 
 getAllclass(){
   this.classService.getAllClass()
-  . subscribe ((data :classEntity [] )=>{
+  . subscribe ((data :ClassEntity [] )=>{
       this.classList = data;
+      console.log(this.classList )
       },
   (error:HttpErrorResponse)=>{
       alert(error.message)

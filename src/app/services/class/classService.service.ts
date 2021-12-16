@@ -1,28 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { classEntity } from 'src/app/Entity/classEntity';
+import { ClassEntity } from 'src/app/Entity/ClassEntity';
+
+
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class classService {
+export class ClassService {
 
   constructor(private http:HttpClient) {  }
-  getAllClass() : Observable<classEntity[]>{
-    return this.http.get<classEntity[]>("http://localhost:8080/class/all");
+  getAllClass() : Observable< any>{
+    return this.http.get<any>("http://localhost:8080/class/list");
   }
-  getClassById(idClass: number):Observable<classEntity>{
-    return this.http.get<classEntity>(`http://localhost:8080/class/${idClass}`);
+  getClassById(idClass: number):Observable< ClassEntity>{
+    return this.http.post< ClassEntity>(`http://localhost:8080/class`,idClass);
   }
-  addClass(newClass:classEntity ):Observable<classEntity>{
-    return this.http.post<classEntity>("http://localhost:8080/class/create",newClass);
+  addClass(newClass: ClassEntity ):Observable< ClassEntity>{
+    return this.http.post< ClassEntity>("http://localhost:8080/class/add",newClass);
   }
-  deleteUserFromClass(newClass:classEntity):Observable<classEntity>{
-    return this.http.post<classEntity>("http://localhost:8080/Cours",newClass);
+  deleteClass(idClass: number):Observable<any>{
+    return this.http.post<any>("http://localhost:8080/class/deleteClass",idClass);
   }
-  updateClass(classe:classEntity):Observable<classEntity>{
-    return this.http.post<classEntity>("http://localhost:8080/class/update",classe);
+  listClassByUser(idUser: number):Observable<any>{
+    return this.http.post<any>("http://localhost:8080/class/listClassByUser",idUser);
+  }
+  addUserToClass( Class: ClassEntity):Observable<any>{
+    return this.http.post<any>("http://localhost:8080/class/listClassByUser", Class);
+  }
+  updateClass(classe:ClassEntity):Observable<any>{
+     return this.http.post<any>("http://localhost:8080/class/update",classe);
   }
 
 }

@@ -1,4 +1,4 @@
-export class classUser{
+export class ClassUser{
     id: number; 
     idUser: number= 4;
     idClass: number=1;

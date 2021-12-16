@@ -39,7 +39,8 @@ export class ProduitsComponent implements OnInit {
       categoryCode: 0,
       availability: 0,
       price: 0,
-      quantity: 0
+      quantity: 0,
+      idUser :4
   };
 
   constructor(

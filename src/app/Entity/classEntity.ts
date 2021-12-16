@@ -1,4 +1,4 @@
-export class classEntity{
+export class ClassEntity{
         id: number ; 
         idUser: number= 4;
         name: string;
