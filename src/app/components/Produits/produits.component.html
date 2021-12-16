@@ -83,7 +83,7 @@
   </div>
 </div>
 
-<div  *ngIf="!filter">
+<div *ngIf="!filter">
 <div class="row">
       <ng-container *ngFor="let item of productList">
           <div class="card col-md-3">
@@ -98,7 +98,7 @@
       </ng-container>
   </div>
   </div>
-  <div class="container page-wrap" *ngIf="filter">
+  <div *ngIf="filter">
     <div class="row">
           <ng-container *ngFor="let item of productFiltredList">
               <div class="card col-md-3">
