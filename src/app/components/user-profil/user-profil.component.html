@@ -7,28 +7,25 @@
   <h1 class="center">Votre profil<span role="img" aria-label="Clipboard"> 📋</span></h1>
 
   <div class="container1">
-    <img id="photo" src="./assets/user.png" alt="">
+    <ng-container>
+      <img id="photo" src="{{user.photo}}" alt="">
+    </ng-container>
 
-    <!--<ng-container *ngFor="let item of userList">
-      <img id="photo" src="{{item.photo}}" alt="">
-    </ng-container>-->
   </div>
 
   <div class="container2">
-    <label class="center">Nom:  </label><br>
-    <label class="center">Prénom: </label><br>
-    <label class="center">Email:  </label><br>
-    <label class="center">Date de naissance:  </label><br>
 
-    <!--<ng-container *ngFor="let item of userList">
-        <p><strong>Nom: </strong>{{item.lastName}}</p>
-        <p><strong>Prenom: </strong>{{item.firstName}}</p>
-        <p><strong>Email: </strong>{{item.quantity}}</p>
-        <p><strong>Date de naissance: </strong>{{item.birth_date}}</p>
-        <p><strong>Année d'étude: </strong>{{item.study_level}}</p>
-        <p><strong>Année d'étude: </strong>{{item.study_level}}</p>
-        <p><strong>Etablissement: </strong>{{item.establishment}}</p>
-    </ng-container>-->
+    <ng-container >
+        <p><strong>Nom: </strong>{{user.lastName}}</p>
+        <p><strong>Prenom: </strong>{{user.firstName}}</p>
+        <p><strong>Email: </strong>{{user.email}}</p>
+        <p><strong>Date de naissance: </strong>{{user.birthDate}}</p>
+        <p><strong>Année d'étude: </strong>{{user.studyLevel}}</p>
+        <p><strong>Etablissement: </strong>{{user.establishment}}</p>
+      <p><strong>Certificate: </strong>{{user.certificateRegist}}</p>
+
+    </ng-container>
+
   </div>
 
   <div class="container3">

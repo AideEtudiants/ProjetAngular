@@ -19,4 +19,9 @@ export class UserService {
   public save(user: User){
     return this.http.post<User>(this.usersUrl, user);
   }
+
+  getUserById(idUser: number):Observable<any>{
+     return this.http.post<any>("http://localhost:8080/profile",idUser);
+   }
+
 }
