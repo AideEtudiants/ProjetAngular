@@ -70,6 +70,10 @@
 </nav>
 <div class="wrapper">
   <div class="sidebar">
+    <br>
+   <button class="search-btn" style="float:left; margin-left:0%;margin-top: 0px;" (click) = "newProduct()" >Nouveau produit</button>
+     <br>
+
       <ul>
         <li class= "active"><a href="/produits">Toutes les offres</a></li>
         <li><a [routerLink]="" (click)="findProductByCategory(1)">Livres</a></li>
@@ -78,10 +82,7 @@
       </ul>
   </div>
 </div>
-<br>
-<button class="search-btn" style="float:left; margin-left: 0%;" (click) = "newProduct()" >Nouveau produit</button>
-<br>
-<br>
+
 <div class="container page-wrap" *ngIf="!filter">
 <div class="row">
       <ng-container *ngFor="let item of productList">
