@@ -3,7 +3,8 @@ export class ClassUser{
     userId: number= 4;
     classId: number=1;
     constructor(idUser : number ,classId:number){
-        this.classId =classId ;
-        this.userId=idUser;   
+        this.userId=idUser; 
+        this.classId = classId ;
+       
     }
 }
