@@ -1,20 +1,18 @@
 .container {
    background: #f7f7f7;
-   width: 2000px;
-   padding-right: 15px;
-   padding-left: 15px;
+   padding-right: 50px;
+   padding-left: 50px;
    margin-right: auto;
    margin-left: auto;
    box-shadow: 0 0 6px rgb(133, 165, 101);
-   left: 100px;
    position: static;
-   width: 1170px;
+   width: 800px;
 }
 .container1 {
     display: inline-block;
     max-width: 300px;
     padding: 100px;
-    background-color: #ddd;
+    background-color: white;
     border-radius: 3px;
     margin-right: 50%;
     margin: 30px;
@@ -25,25 +23,21 @@
   max-width: 300px;
   text-align: left;
   padding: 100px;
-  background-color: #ddd;
+  background-color: white;
   border-radius: 3px;
   margin: 30px;
-  margin-left: 30%;
+  margin-left: 10%;
 }
 .container3 {
   margin: 0 auto;
   max-width: 900px;
   height: 100px;
-  background-color: #ccc;
+  background-color: white;
 }
-.h1 {
-  text-align:center;
-}
-
 .center {
-    text-align:center;
+  text-align:center;
+  font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
-
 *{
   margin: 0;
   padding: 0;
