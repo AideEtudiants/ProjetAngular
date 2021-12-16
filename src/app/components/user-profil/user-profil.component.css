@@ -1,7 +1,14 @@
 .container {
-  position: relative;
-  padding: 30px;
-  text-align:center;
+   background: #f7f7f7;
+   width: 2000px;
+   padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto;
+   box-shadow: 0 0 6px rgb(133, 165, 101);
+   left: 100px;
+   position: static;
+   width: 1170px;
 }
 .container1 {
     display: inline-block;
@@ -29,13 +36,19 @@
   height: 100px;
   background-color: #ccc;
 }
+.h1 {
+  text-align:center;
+}
+
+.center {
+    text-align:center;
+}
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'roboto',sans-serif;
-
 }
 .navbar{
   position:sticky ;
@@ -60,7 +73,8 @@ li a:hover:not(.active) {
  .nav-items{
   display: flex;
   align-items: center;
-} .links-container{
+}
+.links-container{
     width: 100%;
     display:flex;
     padding :10px 10vw;
