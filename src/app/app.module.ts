@@ -26,8 +26,6 @@ import { AppComponent } from './components/app/app.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { NewclasseComponent } from './components/newclasse/newclasse.component';
-import { UserProfilComponent } from './components/user-profil/user-profil.component';
-
 
 
 const routes: Routes = [
@@ -42,8 +40,6 @@ const routes: Routes = [
   { path: 'usersFrm', component: UserFormComponent },
   { path: 'login', component: UserloginComponent},
   { path: 'newclasse', component: NewclasseComponent},
-  { path: 'profil', component: UserProfilComponent},
-
 
 ];
 
@@ -62,8 +58,7 @@ const routes: Routes = [
     CartComponent,
     NewProduct,
     UserloginComponent,
-    NewclasseComponent,
-    UserProfilComponent,
+    NewclasseComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +75,8 @@ const routes: Routes = [
     CommonModule,
     ToastrModule.forRoot(),// ToastrModule added
     MatDialogModule,
-
+    
+    
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
