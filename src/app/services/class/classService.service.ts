@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ClassEntity } from 'src/app/Entity/ClassEntity';
+import { ClassEntity } from 'src/app/Entity/classEntity';
 import { ClassUser } from 'src/app/Entity/ClassUser';
 
 
@@ -19,8 +19,8 @@ export class ClassService {
   getClassById(idClass: number):Observable< ClassEntity>{
     return this.http.post< ClassEntity>(`http://localhost:8080/class`,idClass);
   }
-  addClass(newClass: ClassEntity ):Observable< ClassEntity>{
-    return this.http.post< ClassEntity>("http://localhost:8080/class/add",newClass);
+  addClass(newClass:ClassEntity ):Observable<any>{
+    return this.http.post<any>("http://localhost:8080/class/create",newClass);
   }
   deleteClass(idClass: number):Observable<any>{
     return this.http.post<any>("http://localhost:8080/class/deleteClass",idClass);

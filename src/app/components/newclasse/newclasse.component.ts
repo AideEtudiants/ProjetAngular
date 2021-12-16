@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ClassEntity } from 'src/app/Entity/ClassEntity';
+import { ClassEntity } from 'src/app/Entity/classEntity';
 
 @Component({
   selector: 'app-newclasse',
@@ -18,5 +18,6 @@ export class NewclasseComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
 
 }

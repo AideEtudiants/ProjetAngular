@@ -29,7 +29,6 @@ import { NewclasseComponent } from './components/newclasse/newclasse.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
 
 
-
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'produits', component: ProduitsComponent },
@@ -43,7 +42,6 @@ const routes: Routes = [
   { path: 'login', component: UserloginComponent},
   { path: 'newclasse', component: NewclasseComponent},
   { path: 'profil', component: UserProfilComponent},
-
 
 ];
 
@@ -61,6 +59,7 @@ const routes: Routes = [
     QuestionComponent,
     CartComponent,
     NewProduct,
+    UserProfilComponent,
     UserloginComponent,
     NewclasseComponent,
     UserProfilComponent,

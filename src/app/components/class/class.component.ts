@@ -8,7 +8,7 @@ import { map, startWith } from 'rxjs/operators';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { ClassService } from 'src/app/services/class/classService.service';
-import { ClassEntity } from 'src/app/Entity/ClassEntity';
+import { ClassEntity } from 'src/app/Entity/classEntity';
 import { NewclasseComponent } from '../newclasse/newclasse.component';
 import {ClassUser} from "../../Entity/ClassUser";
 
@@ -22,8 +22,17 @@ import {ClassUser} from "../../Entity/ClassUser";
 
 export class classComponent implements OnInit {
   classList : ClassEntity[];
-  newclasse:ClassEntity;
+ 
+  options: any=[];
+  data:any=''
+  newclasse:ClassEntity={
+  id:0,
+  userId: 4,
+  name: '',
+  description: '',
+  startdate : ''
 
+  };
   constructor(protected classService : ClassService,
     protected toastService : ToastrService,
     protected router: Router,
@@ -50,6 +59,7 @@ AjoutClass(){
   width: '800px',
     data: {},
   });
+
   dialogRef.afterClosed().subscribe(result => {
 
     if(result!=null){

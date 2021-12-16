@@ -1,19 +1,19 @@
 
-                <h2 class="text-uppercase text-center mb-5">Veuillez remplir les champs</h2>
                 
                 <form>
+                  <h2 class="text-uppercase text-center mb-5">Veuillez remplir les champs</h2>
   
                   <div class="form-outline mb-4">
-                    <input [(ngModel)]="data.name" type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Intitulé du cours"/>
+                    <input [(ngModel)]="data.name" type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Intitulé du cours"  [ngModelOptions]="{standalone: true}"/>
                   </div>
                   <div class="form-outline mb-4"> 
-                    <textarea [(ngModel)]="data.description" class="form-control h-25" rows="5" placeholder="Description" required></textarea>
+                    <textarea [(ngModel)]="data.description" class="form-control h-25" rows="5" placeholder="Description" required  [ngModelOptions]="{standalone: true}"></textarea>
                   </div>
                   <div class="form-outline mb-4"> 
-                    <input [(ngModel)]="data.startdate" type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Choisir une date">
+                    <input [(ngModel)]="data.startdate" type="date" id="form3Example1cg" class="form-control form-control-lg" placeholder="Choisir une date" [ngModelOptions]="{standalone: true}"/>
                   </div>
                   <div>
-                    <button class="btn btn-primary">Valider</button>
+                    <button class="btn btn-primary" mat-button [mat-dialog-close]="data" cdkFocusInitial> Valider</button>
                     <button class="btn btn-secondary" style="float:right;" (click)="onNoClick()">Annuler</button> 
               </div>
                   <p><a href="" class="fw-bold text-body"><u>Retour à l'accueil</u></a></p> 

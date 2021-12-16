@@ -5,4 +5,4 @@ export class ClassEntity{
         description: string;
         startdate: string;
 }
-   
+
