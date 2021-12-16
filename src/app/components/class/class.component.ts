@@ -9,6 +9,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { ToastrService } from 'ngx-toastr';
 import { ClassService } from 'src/app/services/class/classService.service';
 import { ClassEntity } from 'src/app/Entity/ClassEntity';
+import { NewclasseComponent } from '../newclasse/newclasse.component';
 
 
 
@@ -20,8 +21,13 @@ import { ClassEntity } from 'src/app/Entity/ClassEntity';
 
 export class classComponent implements OnInit {
   classList : ClassEntity[];
+  newclasse:ClassEntity;
 
-  constructor(protected classService :ClassService, protected toastService : ToastrService) { }
+  constructor(protected classService : ClassService,
+    protected toastService : ToastrService,
+    protected router: Router,
+    private route: ActivatedRoute,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getAllclass();
@@ -38,6 +44,24 @@ export class classComponent implements OnInit {
     });
 }
 
+AjoutClass(){
+  const dialogRef = this.dialog.open(NewclasseComponent, {
+  width: '800px',
+    data: {},
+  });
+  dialogRef.afterClosed().subscribe(result => {
+
+    if(result!=null){
+        this.newclasse = result;
+        this.classService.addClass(this.newclasse).subscribe();
+        this.getAllclass();
+        this.router.navigate(['/cours']);
+    }
+  console.log(this.newclasse);
+  
+});
+}
+
 getAllclass(){
   this.classService.getAllClass()
   . subscribe ((data :ClassEntity [] )=>{
@@ -52,8 +76,5 @@ getAllclass(){
 }
 
 ParticiperCours(){}
-ajoutclass(){
-  
-}
 
 }
