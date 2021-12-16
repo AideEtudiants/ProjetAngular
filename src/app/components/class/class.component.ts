@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ClassService } from 'src/app/services/class/classService.service';
 import { ClassEntity } from 'src/app/Entity/ClassEntity';
 import { NewclasseComponent } from '../newclasse/newclasse.component';
+import {ClassUser} from "../../Entity/ClassUser";
 
 
 
@@ -58,7 +59,7 @@ AjoutClass(){
         this.router.navigate(['/cours']);
     }
   console.log(this.newclasse);
-  
+
 });
 }
 
@@ -75,6 +76,18 @@ getAllclass(){
   );
 }
 
-ParticiperCours(){}
+  ParticiperCours(id :number,idUser:number){
+    let classUser = new ClassUser(idUser,id);
+    console.log(classUser)
+    this.classService.addUserToClass(classUser)
+      . subscribe ((data :ClassUser[] )=>{
+        },
+        (error:HttpErrorResponse)=>{
+          alert(error.message)
+          this.toastService.error('Erreur')
+        }
+      );
+
+  }
 
 }
