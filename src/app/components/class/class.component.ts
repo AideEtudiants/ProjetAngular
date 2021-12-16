@@ -76,7 +76,7 @@ getAllclass(){
   );
 }
 
-  ParticiperCours(id :number,idUser:number){
+  ParticiperCours(idUser:number,id :number){
     let classUser = new ClassUser(idUser,id);
     console.log(classUser)
     this.classService.addUserToClass(classUser)
