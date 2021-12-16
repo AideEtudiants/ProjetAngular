@@ -1,9 +1,9 @@
 export class ClassUser{
     id: number; 
-    idUser: number= 4;
-    idClass: number=1;
-    constructor(idUser : number ,idClass:number){
-        this.idClass =idClass ;
-        this.idUser=idUser;   
+    userId: number= 4;
+    classId: number=1;
+    constructor(idUser : number ,classId:number){
+        this.classId =classId ;
+        this.userId=idUser;   
     }
 }

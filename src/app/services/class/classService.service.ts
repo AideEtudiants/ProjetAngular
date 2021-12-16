@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ClassEntity } from 'src/app/Entity/ClassEntity';
+import { ClassUser } from 'src/app/Entity/ClassUser';
 
 
 
@@ -27,8 +28,8 @@ export class ClassService {
   listClassByUser(idUser: number):Observable<any>{
     return this.http.post<any>("http://localhost:8080/class/listClassByUser",idUser);
   }
-  addUserToClass( Class: ClassEntity):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/class/listClassByUser", Class);
+  addUserToClass( Class: ClassUser):Observable<any>{
+    return this.http.post<any>("http://localhost:8080/class/addUserToClass", Class);
   }
   updateClass(classe:ClassEntity):Observable<any>{
      return this.http.post<any>("http://localhost:8080/class/update",classe);
