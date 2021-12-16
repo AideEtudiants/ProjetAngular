@@ -21,7 +21,6 @@
 .container2 {
   display: inline-block;
   max-width: 300px;
-  text-align: left;
   padding: 100px;
   background-color: white;
   border-radius: 3px;
@@ -31,7 +30,7 @@
 .container3 {
   margin: 0 auto;
   max-width: 900px;
-  height: 100px;
+  height: 250px;
   background-color: white;
 }
 .center {

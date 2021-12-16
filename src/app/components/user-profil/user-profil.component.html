@@ -30,6 +30,13 @@
 
   <div class="container3">
     <h1 class="center2">Offres déposées </h1><br>
+    <ng-container *ngFor="let prod of product" >
+      <p><strong>Nom du produit: </strong>{{prod.name }}
+      <strong> Description: </strong>{{prod.description}}
+      <strong>Prix: </strong>{{prod.price}}
+      <strong>Quantité: </strong>{{prod.quantity}}</p>
+
+  </ng-container>
   </div><br>
 
   <div class="container3">

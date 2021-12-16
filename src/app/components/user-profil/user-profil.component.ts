@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductEntity } from 'src/app/Entity/ProductEntity';
 import { User } from 'src/app/Entity/UserEntity';
 import { UserService } from 'src/app/services/user/user-service.service';
 
@@ -11,6 +12,7 @@ import { UserService } from 'src/app/services/user/user-service.service';
 export class UserProfilComponent implements OnInit {
 
   user: User;
+  product:ProductEntity[];
   constructor( private userService: UserService) {}
 
   ngOnInit():void {
@@ -18,6 +20,11 @@ export class UserProfilComponent implements OnInit {
       this.user=data;
       console.log( this.user)
     });
+
+    this.userService.getProductAdd(4).subscribe(data=>{
+        this.product=data;
+        console.log(this.product)
+    })
   }
 }
 
