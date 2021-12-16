@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BarreDeRechercheComponent } from './components/barre-de-recherche/barre-de-recherche.component';
 import { ForumComponent } from './components/forum/forum.component';
-import { classComponent } from './components/class/class.component';
+import {classComponent } from './components/class/class.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,6 +25,7 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 import { AppComponent } from './components/app/app.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UserloginComponent } from './userlogin/userlogin.component';
+import { NewclasseComponent } from './components/newclasse/newclasse.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'usersFrm', component: UserFormComponent },
   { path: 'login', component: UserloginComponent},
+  { path: 'newclasse', component: NewclasseComponent},
 
 ];
 
@@ -56,6 +58,7 @@ const routes: Routes = [
     CartComponent,
     NewProduct,
     UserloginComponent,
+    NewclasseComponent
   ],
   imports: [
     BrowserModule,

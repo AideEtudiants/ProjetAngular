@@ -10,39 +10,41 @@
               <form (ngSubmit)="onSubmit()">
 
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Nom" [(ngModel)]="user.lastName"/>
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Nom"/>
                 </div>
                 <div class="form-outline mb-4"> 
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Prenom" [(ngModel)]="user.firstName"/>
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Prenom"/>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Email" [(ngModel)]="user.email"/>
+                  <!--[(ngModel)]="user.email"-->
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Email"/>
                  
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" placeholder="Password" [(ngModel)]="user.password"/>
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" placeholder="Password"/>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="date" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Date de naissance" [(ngModel)]="user.birthDate"/>
+                  <input type="date" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Date de naissance"/>
           
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Niveau d'étude" [(ngModel)]="user.studyLevel"/>
+                  <input type="text" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Niveau d'étude"/>
                 </div>
                 <div class="form-outline mb-4">
-                  <input type="file" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Certificat de scolarité" [(ngModel)]="user.certificateRegist"/>
+                  <input type="file" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Certificat de scolarité"/>
                 </div>
                 <div class="form-outline mb-4">
                   <div class="form-outline mb-4">
-                    <input type="text" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Etablissement" [(ngModel)]="user.establishment"/>
+                    <!--[(ngModel)]="user.establishment"-->
+                    <input type="text" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Etablissement"/>
                   </div>
                   <div class="form-outline mb-4">
                   Photo
-                  <input type="file" id="form3Example4cdg" class="form-control form-control-lg" [(ngModel)]="user.photo" />
+                  <input type="file" id="form3Example4cdg" class="form-control form-control-lg"/>
                 </div>
                  
 

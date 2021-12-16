@@ -52,5 +52,8 @@ getAllclass(){
 }
 
 ParticiperCours(){}
+ajoutclass(){
+  
+}
 
 }
