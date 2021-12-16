@@ -156,11 +156,11 @@ export class ProduitsComponent implements OnInit {
 
     newProduct(): void {
         const dialogRef = this.dialog.open(NewProduct, {
-          width: '900px',
+          width: '750px',
           height:'700px',
           data: {},
         });
-    
+
         dialogRef.afterClosed().subscribe(result => {
 
             if(result!=null){
@@ -169,7 +169,7 @@ export class ProduitsComponent implements OnInit {
                 this.gotoElementTrouve();
             }
           console.log(this.NewProduct);
-          
+
         });
     }
     public getAvailability(availability : number) : String{
@@ -179,7 +179,7 @@ export class ProduitsComponent implements OnInit {
             return "Réservé" ;
         }else {
             return " vendu";
-        }     
+        }
 
     }
 }
@@ -194,7 +194,7 @@ export class ProduitsComponent implements OnInit {
       public dialogRef: MatDialogRef<NewProduct>,
       @Inject(MAT_DIALOG_DATA) public data: ProductEntity,
     ) {}
-  
+
     onNoClick(): void {
       this.dialogRef.close();
     }
