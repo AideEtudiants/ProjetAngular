@@ -27,6 +27,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { NewclasseComponent } from './components/newclasse/newclasse.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 const routes: Routes = [
@@ -63,6 +64,7 @@ const routes: Routes = [
     UserloginComponent,
     NewclasseComponent,
     UserProfilComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
