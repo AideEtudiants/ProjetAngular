@@ -31,16 +31,20 @@
   <div class="container3">
     <h1 class="center2">Offres déposées </h1><br>
     <ng-container *ngFor="let prod of product" >
-      <p><strong>Nom du produit: </strong>{{prod.name }}
+      <p><strong>Nom du produit: </strong>{{prod.name}}
       <strong> Description: </strong>{{prod.description}}
       <strong>Prix: </strong>{{prod.price}}
       <strong>Quantité: </strong>{{prod.quantity}}</p>
-
-  </ng-container>
+    </ng-container>
   </div><br>
 
   <div class="container3">
     <h1 class="center2">Cours mis en ligne </h1><br>
+    <ng-container *ngFor="let cour of cours" >
+      <p><strong>Nom du cours: </strong>{{cour.name}}
+      <strong> Description: </strong>{{cour.description}}
+      <strong>Date de début: </strong>{{cour.startdate}}</p>
+    </ng-container>
   </div>
 
 </div>
