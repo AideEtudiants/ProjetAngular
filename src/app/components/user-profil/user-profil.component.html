@@ -10,7 +10,6 @@
     <ng-container>
       <img id="photo" src="{{user.photo}}" alt="">
     </ng-container>
-
   </div>
 
   <div class="container2">
@@ -40,7 +39,7 @@
 
   <div class="container3">
     <h1 class="center2">Cours mis en ligne </h1><br>
-    <ng-container *ngFor="let cour of cours" >
+    <ng-container *ngFor="let cour of class" >
       <p><strong>Nom du cours: </strong>{{cour.name}}
       <strong> Description: </strong>{{cour.description}}
       <strong>Date de début: </strong>{{cour.startdate}}</p>
