@@ -17,13 +17,13 @@ export class ClassService {
     return this.http.get<any>("http://localhost:8080/class/list");
   }
   getClassById(idClass: number):Observable< ClassEntity>{
-    return this.http.post< ClassEntity>(`http://localhost:8080/class`,idClass);
+    return this.http.post< ClassEntity>("http://localhost:8080/class",idClass);
   }
   addClass(newClass:ClassEntity ):Observable<any>{
     return this.http.post<any>("http://localhost:8080/class/create",newClass);
   }
   deleteClass(idClass: number):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/class/deleteClass",idClass);
+    return this.http.post<any>("http://localhost:8080/class/delete",idClass);
   }
   listClassByUser(idUser: number):Observable<any>{
     return this.http.post<any>("http://localhost:8080/class/listClassByUser",idUser);

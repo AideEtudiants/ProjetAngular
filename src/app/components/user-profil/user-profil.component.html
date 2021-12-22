@@ -30,19 +30,24 @@
   <div class="container3">
     <h1 class="center2">Offres déposées </h1><br>
     <ng-container *ngFor="let prod of product" >
-      <p><strong>Nom du produit: </strong>{{prod.name}}
-      <strong> Description: </strong>{{prod.description}}
-      <strong>Prix: </strong>{{prod.price}}
-      <strong>Quantité: </strong>{{prod.quantity}}</p>
+      <p>
+        <button class="btn btn-danger" (click)="deleteProduct(prod)">Supprimer</button>
+        <strong> Nom du produit: </strong>{{prod.name}}
+        <strong> Description: </strong>{{prod.description}}
+        <strong>Prix: </strong>{{prod.price}}
+      </p>
     </ng-container>
   </div><br>
 
   <div class="container3">
     <h1 class="center2">Cours mis en ligne </h1><br>
-    <ng-container *ngFor="let cour of class" >
-      <p><strong>Nom du cours: </strong>{{cour.name}}
-      <strong> Description: </strong>{{cour.description}}
-      <strong>Date de début: </strong>{{cour.startdate}}</p>
+    <ng-container *ngFor="let clas of class">
+      <p>
+        <button class="btn btn-danger" (click)="deleteClass(clas)">Supprimer</button>
+        <strong>Nom du cours: </strong>{{clas.name}}
+        <strong> Description: </strong>{{clas.description}}
+        <strong>Date de début: </strong>{{clas.startdate}}
+      </p>
     </ng-container>
   </div>
 

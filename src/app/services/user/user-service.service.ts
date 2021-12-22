@@ -31,5 +31,4 @@ export class UserService {
    getClassAdd(idUser:number):Observable<any>{
     return this.http.post<any>("http://localhost:8080/class/listClassByUser",idUser);
    }
-
 }

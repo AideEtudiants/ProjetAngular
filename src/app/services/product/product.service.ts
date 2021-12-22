@@ -25,7 +25,9 @@ export class ProductService {
   addProduct(newProduct:ProductEntity):Observable<ProductEntity>{
     return this.http.post<ProductEntity>("http://localhost:8080/product/create",newProduct);
   }
-
+  deleteProduct(idProduct: number):Observable<any>{
+      return this.http.post<any>("http://localhost:8080/product/deleteProduct",idProduct);
+  }
   findProductByCategory(idCategorie:number) : Observable<ProductEntity[]>{
     return this.http.post<ProductEntity[]>("http://localhost:8080/product/searchByCategory",idCategorie);
   }

@@ -32,12 +32,11 @@
 }
 .container3 {
   margin: 0 auto;
-  width: auto;
   max-width: 900px;
-  height: 250px;
   background-color: white;
   box-shadow: 0 0 6px rgb(133, 165, 101);
-  height: auto;
+     height: auto;
+
 }
 .center {
   text-align:center;
