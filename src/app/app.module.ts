@@ -28,6 +28,7 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import { NewclasseComponent } from './components/newclasse/newclasse.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { UpdateProduitComponent } from './components/update-produit/update-produit.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,8 @@ const routes: Routes = [
   { path: 'login', component: UserloginComponent},
   { path: 'newclasse', component: NewclasseComponent},
   { path: 'profil', component: UserProfilComponent},
+  { path: 'updateProduit/:id', component: UpdateProduitComponent},
+
 
 ];
 
@@ -65,6 +68,7 @@ const routes: Routes = [
     NewclasseComponent,
     UserProfilComponent,
     FooterComponent,
+    UpdateProduitComponent,
   ],
   imports: [
     BrowserModule,

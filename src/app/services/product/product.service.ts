@@ -16,7 +16,10 @@ export class ProductService {
   getProductById(idProduct: number):Observable<ProductEntity>{
     return this.http.get<ProductEntity>(`http://localhost:8080/product/${idProduct}`);
   }
-  updatProcut(productToUpdate:number):Observable<ProductEntity>{
+  updateProduct(productToUpdate:number):Observable<ProductEntity>{
+
+    //this.deleteProduct(prod);
+    //this.addProduct(prod);
     return this.http.post<ProductEntity>("http://localhost:8080/product",productToUpdate);
   }
   RemoveProduct(idProduct:number):Observable<void>{

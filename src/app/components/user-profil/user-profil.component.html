@@ -31,6 +31,7 @@
     <h1 class="center2">Offres déposées </h1><br>
     <ng-container *ngFor="let prod of product" >
       <p>
+        <button class="btn btn-success" [routerLink]="['/updateProduit', prod.id]">Modifier</button>
         <button class="btn btn-danger" (click)="deleteProduct(prod)">Supprimer</button>
         <strong> Nom du produit: </strong>{{prod.name}}
         <strong> Description: </strong>{{prod.description}}
