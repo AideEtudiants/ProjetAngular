@@ -3,16 +3,16 @@ export class ClassEntity{
         userId: number = 4;
         name: string;
         description: string;
-        startdate: string;
+        startDate: string;
       constructor(id: number ,
         userId: number ,
         name: string,
         description: string,
-        startdate: string){
+        startDate: string){
                 this.description=description;
                 this.id=id;
                 this.name=name;
-                this.startdate=startdate;
+                this.startDate=startDate;
         }
 
 }

@@ -190,6 +190,10 @@ li a:hover:not(.active) {
   transition: 0.3s ease-in-out;
 }
 
+.map-container {
+    height: 200px;
+    width: 100%
+}
 .card img:hover {
   transition: 0.3s ease-in-out;
   transform: scale(1.1);

@@ -29,6 +29,7 @@ import { NewclasseComponent } from './components/newclasse/newclasse.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UpdateProduitComponent } from './components/update-produit/update-produit.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 const routes: Routes = [
@@ -73,6 +74,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     /*AppRoutingModule,*/
+    LeafletModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
