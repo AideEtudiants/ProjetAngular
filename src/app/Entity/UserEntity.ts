@@ -9,5 +9,7 @@ export class User {
     establishment: string;
     certificateRegist: string;
     photo: string;
+    point : number;
+    adresse : string
   }
   

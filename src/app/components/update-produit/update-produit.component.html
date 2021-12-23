@@ -18,10 +18,6 @@
       <label >Description Produit</label>
       <input type="text"[(ngModel)]= "currentProduct.description" name="descriptionProduit" class="form-control">
     </div>
-    <div class="col-sm-2 col-md-2 col-lg-2">
-      <label >Prix Produit</label>
-      <input type="number" [(ngModel)]= "currentProduct.price" name="prixProduit" class="form-control">
-    </div>
     <div class="mt-2">
       <button type="submit" (click)="updateProduct()" class="btn btn-success">Modifer</button>
     </div>
