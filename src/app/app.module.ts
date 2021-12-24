@@ -30,6 +30,7 @@ import { UserProfilComponent } from './components/user-profil/user-profil.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { UpdateProduitComponent } from './components/update-produit/update-produit.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 const routes: Routes = [
@@ -74,6 +75,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     /*AppRoutingModule,*/
+    GoogleMapsModule,
     LeafletModule,
     HttpClientModule,
     BrowserAnimationsModule,
