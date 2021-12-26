@@ -5,30 +5,30 @@
                 <table class="table table-responsive">
                     <thead>
                         <tr>
-                          <th scope="col"> Name</th>
+                          <th scope="col">Nom</th>
                           <th scope="col">Description</th>
-                          <th scope="col">Prix</th>
+                          <th scope="col">Point</th>
                           <th scope="col">Catégorie</th>
-                          <th scope="col">Actions</th>
+                          <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let produit of products">
                             <td>{{ produit.name }}</td>
                             <td style="width: 12%;">{{produit.description}}</td>
-                            <th style="width: 12%;">{{produit.price}}</th>
+                            <th style="width: 12%;">{{produit.point}}</th>
                             <td style="width: 12%;">{{getCategory(produit.categoryCode)}}</td>
                             <td>
                                 <button (click)="removeItem(produit.id,4)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1"></td>  
+                            <td colspan="1"></td>
                             <td><button  (click)="openProducts()" class="btn btn-primary">Voir plus</button></td>
-                            <td><strong>Total: {{grandTotal}} € </strong></td>
-                            <td><button class="btn btn-success">Payer</button></td>
+                            <td><strong>Total: {{grandTotal}} points </strong></td>
+                            <td><button class="btn btn-success">Valider</button></td>
                             <td><button (click)="emptycart()" class="btn btn-danger">Supprimer tous</button></td>
-                            
+
                         </tr>
                     </tbody>
                 </table>

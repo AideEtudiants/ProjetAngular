@@ -90,9 +90,10 @@
               <img src="{{item.image}}" alt="">
               <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
               <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
-              <!-- <p><strong>Quantité:</strong>{{item.quantity}}</p> -->
+              <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;"><strong>Points: </strong>{{item.point}} points</p>
+            <!-- <p><strong>Quantité:</strong>{{item.quantity}}</p> -->
               <p><strong>Disponibilité:</strong>{{getAvailability(item.availability)}}</p>
-              <button class="btn btn-primary" (click)="addtocart(item)">Ajouter au panier</button>
+            <button class="btn btn-primary" (click)="addtocart(item)">Ajouter au panier</button>
           </div>
       </ng-container>
   </div>
@@ -104,9 +105,10 @@
                   <img src="{{item.image}}" alt="">
                   <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
                   <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
-                  <!-- <p class="item-amount mt-4"><strong>Quantité:</strong>{{item.quantity}}</p> -->
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;"><strong>Points: </strong>{{item.point}} points</p>
+                <!-- <p class="item-amount mt-4"><strong>Quantité:</strong>{{item.quantity}}</p> -->
                   <p class="item-amount mt-4"><strong>Disponibilité:</strong>{{getAvailability(item.availability)}}</p>
-                  <button class="btn btn-primary" (click)="addtocart(item)">Ajouter au panier</button>
+                <button class="btn btn-primary" (click)="addtocart(item)">Ajouter au panier</button>
               </div>
           </ng-container>
       </div>
@@ -117,7 +119,7 @@
         <img src="{{item.image}}" alt="">
         <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.name}}</h5>
         <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
-        <p><strong>Prix:</strong> {{item.price}} € </p>
+        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;"><strong>Points: </strong>{{item.point}} points</p>
         <!-- <p class="item-amount mt-4"><strong>Quantité:</strong>{{item.quantity}}</p> -->
         <p class="item-amount mt-4"><strong>Disponibilité:</strong>{{getAvailability(item.availability)}}</p>
         <button class="btn btn-primary" (click)="addtocart(item)" >Ajouter au panier</button>
