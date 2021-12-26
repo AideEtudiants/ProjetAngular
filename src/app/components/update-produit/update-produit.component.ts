@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductEntity } from 'src/app/Entity/ProductEntity';
 import { ProductService } from 'src/app/services/product/product.service';
 
-
 @Component({
   selector: 'app-update-produit',
   templateUrl: './update-produit.component.html',
@@ -11,7 +10,7 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class UpdateProduitComponent implements OnInit {
 
-  product: ProductEntity[];
+  products: ProductEntity[];
   currentProduct = new ProductEntity();
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -25,7 +24,7 @@ export class UpdateProduitComponent implements OnInit {
   }
 
   consulterProduct(idp: number) : ProductEntity {
-    return this.product.find(p => p.id == idp);
+    return this.products.find(p => p.id == idp);
   }
   updateProduct() {
     //this.productService.updateProduct(this.currentProduct);
