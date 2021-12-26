@@ -33,7 +33,7 @@ export class classComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllclass();
-    
+
   }
 
   addclass(classe:ClassEntity){
@@ -62,7 +62,7 @@ AjoutClass(){
         this.getAllclass();
         this.router.navigate(['/cours']);
     }
- 
+
 
 });
 }
@@ -80,7 +80,7 @@ getAllclass(){
   );
 }
 
-  ParticiperCours(idUser:number,id :number){
+  /*ParticiperCours(idUser:number,id :number){
     let classUser = new ClassUser(idUser,id);
     console.log(classUser)
     this.classService.addUserToClass(classUser)
@@ -92,10 +92,34 @@ getAllclass(){
         }
       );
 
-  }
+  }*/
   voirCart(){
     const dialogRef = this.dialog.open(GoogleMap);
 
   }
+  ParticiperCours(idUser:number,id :number): void {
+       const dialogRef = this.dialog.open(ParticiperForm, {
+         width: '250px',
+         data: {},
+       });
 
+       dialogRef.afterClosed().subscribe(result => {
+       });
+     }
+
+}
+
+@Component({
+  selector: 'ParticiperForm',
+  templateUrl: 'ParticiperForm.html',
+})
+export class ParticiperForm {
+  constructor(
+    public dialogRef: MatDialogRef<ParticiperForm>,
+    @Inject(MAT_DIALOG_DATA) public data:ClassEntity,
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
