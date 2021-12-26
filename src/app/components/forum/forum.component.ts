@@ -5,6 +5,7 @@ import { ForumEntity } from 'src/app/Entity/ForumEntity';
 import { ForumAnswerService } from 'src/app/services/forum/forumService.service';
 import { ToastrService } from 'ngx-toastr';
 import { observable } from 'rxjs';
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 
 @Component({
   selector: 'app-forum',
@@ -19,6 +20,7 @@ export class ForumComponent implements OnInit {
   constructor(private router: Router,protected forumservice: ForumAnswerService, protected toastService : ToastrService,) { }
 
   ngOnInit(): void {
+    this.getAllForums();
   }
 
   onQuiz(){

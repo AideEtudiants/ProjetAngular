@@ -5,4 +5,5 @@ export class ForumEntity{
     description: string;
     idUser: number;
     startDate : Date;
+
 }

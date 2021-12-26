@@ -9,15 +9,20 @@
   <p align="center">Saisir votre question</p>
 
   <div align="center">
-  <input class="form-control" type="text"placeholder="Ma question">
+  <input [(ngModel)]="data.title" class="form-control" type="text"placeholder="Ma question">
 </div><br>
   <div class="row">
     <div class="col-xs-12">
       <div align="center">
-        <textarea class="form-control h-25" rows="5" placeholder="Détails" required></textarea>
-      </div><br> <p align="center">Des étudiants se chargeront de repondre à votre question </p><br>
+        <textarea [(ngModel)]="data.description" class="form-control h-25" rows="5" placeholder="Détails" required></textarea>
+      </div><br>
+        <div align="center">
+          <input [(ngModel)]="data.startDate" class="form-control" type="date">
+        </div><br>
+       <p align="center">Des étudiants se chargeront de repondre à votre question </p><br>
       <div align="center">
-        <button class="btn btn-success" type="submit" (click)="listQuestion()">Soumettre</button>
+        <button class="btn btn-primary" mat-button [mat-dialog-close]="data" cdkFocusInitial>Soumettre</button>
+        <button class="btn btn-secondary" style="float:right;" (click)="onNoClick()">Annuler</button>
     </div>
     <br>
   </div>

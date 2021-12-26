@@ -34,19 +34,18 @@ header {
 }
 
 /*menu*/
-ul {
+.list-group{
     list-style-type: none;
     margin: 0;
     padding: 0;
     padding-top: 0px;
-    border: 0;
     font: inherit;
     font-size: 130%;
-    text-align: center;
+
 }
 
-ul li:hover a{
-  color: white;
+li:hover a{
+  color: rgb(37, 66, 128);
 }
 
 li {
@@ -54,17 +53,13 @@ li {
 }
 
 li a {
-    display: inline-block;
-	  margin: 0 50px;
-    padding: 18px 20px;
-	  text-align: center;
+	text-align: left;
     text-decoration: none;
-    color: grey;
+    color: rgb(10, 73, 247);
+    size: 60%;
+
 }
 
-li a:hover:not(.active) {
-    background-color: red;
-}
 
 textarea {
     width: 500px;
@@ -79,4 +74,13 @@ textarea {
   .caroussel img {
     width: 500px;
     height: 350px;
+}
+
+.pp a{
+    font-size: 130%;
+}
+
+.u{
+    padding-left: 2%;
+    padding-right: 2%;
 }
