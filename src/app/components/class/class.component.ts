@@ -8,6 +8,7 @@ import { ClassService } from 'src/app/services/class/classService.service';
 import { ClassEntity } from 'src/app/Entity/classEntity';
 import { NewclasseComponent } from '../newclasse/newclasse.component';
 import {ClassUser} from "../../Entity/ClassUser";
+import { GoogleMap } from '@angular/google-maps';
 
 
 @Component({
@@ -90,6 +91,10 @@ getAllclass(){
           this.toastService.error('Erreur')
         }
       );
+
+  }
+  voirCart(){
+    const dialogRef = this.dialog.open(GoogleMap);
 
   }
 
