@@ -4,12 +4,12 @@
   <div class="container">
     <h1 align="center">Forum Studenity</h1>
     <div class="row">
-      <ng-container *ngFor="let forum of ForumList">
+      <ng-container *ngFor="let frum of ForumList">
          <ul class="list-group">
             <li [ngClass]="{'list-group-item': true,'list-group-item-success': true}">
-                <li class= "link-item"><a class="link" href="answer">{{forum.title}}</a></li>
-                <li class= "link-item" style="float:right;">{{forum.startDate}}</li>
-                <p> {{forum.description}}</p>  
+               {{frum.title}}
+                {{frum.startDate}}
+                {{frum.description}} 
           </ul>
         </ng-container>
     </div>

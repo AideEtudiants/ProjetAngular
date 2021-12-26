@@ -71,7 +71,7 @@ getAllclass(){
   this.classService.getAllClass()
   . subscribe ((data :ClassEntity [] )=>{
       this.classList = data;
-      console.log(this.classList )
+      console.log(this.classList)
       },
   (error:HttpErrorResponse)=>{
       alert(error.message)

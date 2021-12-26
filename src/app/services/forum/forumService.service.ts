@@ -11,40 +11,40 @@ import { AnswertEntity } from 'src/app/Entity/AnswerEntity';
 
 })
 
-export class ForumService {
+export class ForumAnswerService {
 
   constructor(private http:HttpClient) {  }
 
-   getAllForums(): Observable <any>{
-    return this.http.get<any>("http://localhost:8080/forum/listForum");
+   getAllForums(): Observable <ForumEntity[]>{
+    return this.http.get<ForumEntity[]>("http://localhost:8080/question/listForum");
   }
   
   listAnswerByForum(idForum:number): Observable<AnswertEntity>{
-    return this.http.post<AnswertEntity>("http://localhost:8080/forum/listAnswerByForum",idForum);
+    return this.http.post<AnswertEntity>("http://localhost:8080/question/listAnswerByForum",idForum);
   }
 
   updateAnswer(answer:AnswertEntity):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/forum/updateAnswer",answer);
+    return this.http.post<any>("http://localhost:8080/question/updateAnswer",answer);
   }
 
   updateForum(forum:ForumEntity):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/forum/updateForum",forum);
+    return this.http.post<any>("http://localhost:8080/question/updateForum",forum);
   }
 
   addForum(newForum:ForumEntity):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/forum/createForum",newForum);
+    return this.http.post<any>("http://localhost:8080/question/createForum",newForum);
   }
 
   deleteForum(idforum: number):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/forum/deleteForum",idforum);
+    return this.http.post<any>("http://localhost:8080/question/deleteForum",idforum);
   }
 
   deleteAnswer(idanswer: number):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/forum/deleteAnswer",idanswer);
+    return this.http.post<any>("http://localhost:8080/questiondeleteAnswer",idanswer);
   }
 
   addAnswerToForum(answer:AnswertEntity):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/forum/addAnswerToForum",answer);
+    return this.http.post<any>("http://localhost:8080/question/addAnswerToForum",answer);
   }
 
   
