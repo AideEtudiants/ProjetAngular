@@ -9,6 +9,8 @@ import { ClassEntity } from 'src/app/Entity/classEntity';
 import { NewclasseComponent } from '../newclasse/newclasse.component';
 import {ClassUser} from "../../Entity/ClassUser";
 import { GoogleMap } from '@angular/google-maps';
+import { UserService } from 'src/app/services/user/user-service.service';
+import { User } from 'src/app/Entity/UserEntity';
 
 
 @Component({
@@ -24,12 +26,13 @@ export class classComponent implements OnInit {
   // private mapContainer: ElementRef<HTMLElement>;
   options: any=[];
   data:any=''
+  user: User;
   newclasse:ClassEntity = new ClassEntity(null,4,"","","");
   constructor(protected classService : ClassService,
     protected toastService : ToastrService,
     protected router: Router,
     private route: ActivatedRoute,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,private userService : UserService) { }
 
   ngOnInit(): void {
     this.getAllclass();
@@ -79,27 +82,12 @@ getAllclass(){
       }
   );
 }
-
-  /*ParticiperCours(idUser:number,id :number){
-    let classUser = new ClassUser(idUser,id);
-    console.log(classUser)
-    this.classService.addUserToClass(classUser)
-      . subscribe ((data :ClassUser[] )=>{
-        },
-        (error:HttpErrorResponse)=>{
-          alert(error.message)
-          this.toastService.error('Erreur')
-        }
-      );
-
-  }*/
   voirCart(){
     const dialogRef = this.dialog.open(GoogleMap);
-
   }
   ParticiperCours(idUser:number,id :number): void {
        const dialogRef = this.dialog.open(ParticiperForm, {
-         width: '250px',
+         width: '300px',
          data: {},
        });
 
