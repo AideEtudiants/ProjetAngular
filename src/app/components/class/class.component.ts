@@ -27,6 +27,7 @@ export class classComponent implements OnInit {
   options: any=[];
   data:any=''
   user: User;
+  classActuelle: any={};
   newclasse:ClassEntity = new ClassEntity(null,4,"","","");
   constructor(protected classService : ClassService,
     protected toastService : ToastrService,
@@ -85,10 +86,14 @@ getAllclass(){
   voirCart(){
     const dialogRef = this.dialog.open(GoogleMap);
   }
-  ParticiperCours(idUser:number,id :number): void {
+  ParticiperCours(idUser:number,idClass :number): void {
+       this.classService.getClassById(idClass).subscribe((data:ClassEntity) => {
+         this.classActuelle = data;
+         console.log(this.classActuelle)
+       }) 
        const dialogRef = this.dialog.open(ParticiperForm, {
          width: '300px',
-         data: {},
+         data: {description: this.classActuelle.description, startDate: this.classActuelle.startDate},
        });
 
        dialogRef.afterClosed().subscribe(result => {

@@ -13,8 +13,8 @@ export class ClassService {
   getAllClass() : Observable< any>{
     return this.http.get<any>("http://localhost:8080/class/list");
   }
-  getClassById(idClass: number):Observable< ClassEntity>{
-    return this.http.post< ClassEntity>("http://localhost:8080/class",idClass);
+  getClassById(idClass: number):Observable<ClassEntity>{
+    return this.http.post<ClassEntity>("http://localhost:8080/class/classById",idClass);
   }
   addClass(newClass:ClassEntity ):Observable<any>{
     return this.http.post<any>("http://localhost:8080/class/create",newClass);
