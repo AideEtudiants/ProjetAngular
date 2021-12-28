@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BarreDeRechercheComponent } from './components/barre-de-recherche/barre-de-recherche.component';
 import { ForumComponent } from './components/forum/forum.component';
-import {classComponent } from './components/class/class.component';
+import {classComponent, ParticiperForm } from './components/class/class.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -71,6 +71,7 @@ const routes: Routes = [
     UserProfilComponent,
     FooterComponent,
     UpdateProduitComponent,
+    ParticiperForm,
   ],
   imports: [
     BrowserModule,

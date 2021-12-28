@@ -27,7 +27,8 @@ export class classComponent implements OnInit {
   options: any=[];
   data:any=''
   user: User;
-  classActuelle: any={};
+  classActuelle: any;
+  userActuel:any;
   newclasse:ClassEntity = new ClassEntity(null,4,"","","");
   constructor(protected classService : ClassService,
     protected toastService : ToastrService,
@@ -91,11 +92,13 @@ getAllclass(){
          this.classActuelle = data;
          console.log(this.classActuelle)
        }) 
+       
+       //this.userService.getUserById(idUser).subscribe
        const dialogRef = this.dialog.open(ParticiperForm, {
-         width: '300px',
-         data: {description: this.classActuelle.description, startDate: this.classActuelle.startDate},
+         width: '400px',
+         data: this.classActuelle,
        });
-
+       
        dialogRef.afterClosed().subscribe(result => {
        });
      }

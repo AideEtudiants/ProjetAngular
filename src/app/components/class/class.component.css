@@ -211,3 +211,17 @@ li a:hover:not(.active) {
  width: 10%;
 
 } 
+
+.list{
+ 
+ border: 1px,solid,#bbb;
+}
+.list-group-item{
+  background-color: #fff;
+  transition: all 0.5s ease-out;
+}
+.list-group-item:hover{
+
+  background-color: #e0e4e8;
+}
+
