@@ -228,9 +228,7 @@ li a {
 .wrapper .sidebar ul li{
   padding: 10px;
   font-weight: bold;
-  border-bottom: 1px solid #ecebf1;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-top: 1px solid rgba(255,255,255,0.05);
+
 }
 
 .wrapper .sidebar ul li a{
