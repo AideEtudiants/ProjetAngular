@@ -175,8 +175,8 @@ export class ProduitsComponent implements OnInit {
     public getAvailability(availability : number) : String{
         if(availability == AvailabilityEnum.disponible ){
             return "Disponible";
-        }else if (availability == AvailabilityEnum.réservé){
-            return "Réservé" ;
+        }else if (availability == AvailabilityEnum.donne){
+            return "Donné" ;
         }else {
             return " vendu";
         }

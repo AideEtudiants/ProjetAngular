@@ -1,37 +1,4 @@
 <body>
-  <!-- <header id= "header"> -->
-<!--
- <img id= "logo" src= "./assets/logo.png" alt> -->
-
-   <!--<div class= "searchbar" style= "margin-left: 530px; margin-top: -68px;padding-bottom: 60px;">
-    <input
-      placeholder="Rechercher"
-      matInput
-      [formControl]="myControl"
-      [matAutocomplete]="auto"
-      [(ngModel)]=" data"
-    >
-    <button class="btn btn-primary b"  (click)="rechercher()"> Rechercher </button>
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let option of filteredOptions | async"
-        [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-
-    <div style="margin-top: -30px;margin-left: 16px;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="#999" class="bi bi-search" viewBox="0 0 16 16">
-        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-      </svg>
-    </div>
-    <div style="margin-top: -25px;margin-left: 320px;cursor: pointer;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="#999" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-      </svg>
-    </div>
-  </div>
-   -->
 <nav class = "navbar">
   <div class="nav">
     <a href=""><img class= "brand-logo"  src= "./assets/logo.png" alt></a>
@@ -68,17 +35,45 @@
   </ul>
 
 </nav>
+<h1 align="center">Toutes les offres</h1>
 <div class="wrapper">
   <div class="sidebar">
     <br>
    <button class="search-btn" style="float:left; margin-left:0%;margin-top: 0px;" (click) = "newProduct()" >Nouveau produit</button>
      <br>
 
-      <ul>
-        <li class= "active"><a href="/produits">Toutes les offres</a></li>
-        <li><a [routerLink]="" (click)="findProductByCategory(1)">Livres</a></li>
-        <li><a  [routerLink]="" (click)="findProductByCategory(2)">Equipements</a><li>
-        <li><a [routerLink]="" (click)="findProductByCategory(3)">Autres</a></li>
+      <ul class = "ul">
+        <!-- <li class= "active"><a href="/produits">Toutes les offres</a></li> -->
+        <li class= "deroulant"><a href="/produits">Catégorie</a>
+          <ul  class="sous">
+            <li><a [routerLink]="" (click)="findProductByCategory(1)">Livres</a></li>
+            <li><a  [routerLink]="" (click)="findProductByCategory(2)">Equipements</a><li>
+            <li><a [routerLink]="" (click)="findProductByCategory(3)">Autres</a></li>
+          </ul>
+          <br>
+          <li class= "deroulant"><a href="">Statuts</a>
+            <ul  class="sous">
+              <li><a [routerLink]="" (click)="findProductByCategory(1)">Tout neuf</a></li>
+              <li><a  [routerLink]="" (click)="findProductByCategory(2)">Recondition en bon etat
+              </a><li>
+            </ul>
+          </li>
+          <br>
+          <li class= "deroulant"><a href="">Diponibilité</a>
+            <ul  class="sous">
+              <li><a [routerLink]="" (click)="findProductByCategory(1)">Disponible</a></li>
+              <li><a  [routerLink]="" (click)="findProductByCategory(2)">Reservé</a><li>
+              <li><a  [routerLink]="" (click)="findProductByCategory(2)">Donné</a><li>
+            </ul>
+          </li>
+          <br>
+          <li class= "deroulant"><a href="">Date de création</a>
+            <ul  class="sous">
+              <!-- <li><a [routerLink]="" (click)="findProductByCategory(1)"></a></li>
+              <li><a  [routerLink]="" (click)="findProductByCategory(2)"></a><li> -->
+            </ul>
+          </li>
+         
       </ul>
   </div>
 </div>

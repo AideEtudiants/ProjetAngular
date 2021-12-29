@@ -41,16 +41,6 @@ export class classComponent implements OnInit {
 
   }
 
-  addclass(classe:ClassEntity){
-    this.classService.addClass(classe)
-    .subscribe({
-        next :(data)=>{
-            this.toastService.success('Le class a ete ajouter')
-        },
-        error :()=>  this.toastService.error('Erreur lors de lajout')
-
-    });
-}
 
 AjoutClass(){
   const dialogRef = this.dialog.open(NewclasseComponent, {
@@ -63,7 +53,13 @@ AjoutClass(){
     if(result!=null){
         this.newclasse = result;
         console.log(this.newclasse);
-        this.classService.addClass(this.newclasse).subscribe();
+        this.classService.addClass(this.newclasse).subscribe({
+          next :(data)=>{
+              this.toastService.success('Le class a ete ajouter')
+          },
+          error :()=>  this.toastService.error('Erreur lors de lajout')
+  
+      });
         this.getAllclass();
         this.router.navigate(['/cours']);
     }
