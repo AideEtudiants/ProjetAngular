@@ -174,11 +174,11 @@ export class ProduitsComponent implements OnInit {
     }
     public getAvailability(availability : number) : String{
         if(availability == AvailabilityEnum.disponible ){
-            return "Disponible";
+            return " Disponible";
         }else if (availability == AvailabilityEnum.donne){
-            return "Donné" ;
+            return " Donné" ;
         }else {
-            return " vendu";
+            return " Non disponible";
         }
 
     }
