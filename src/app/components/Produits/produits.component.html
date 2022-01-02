@@ -44,30 +44,30 @@
 
       <ul class = "ul">
         <!-- <li class= "active"><a href="/produits">Toutes les offres</a></li> -->
-        <li class= "deroulant"><a href="/produits">Catégorie</a>
+        <li class= "deroulant"><a>Catégorie</a>
           <ul  class="sous">
-            <li><a [routerLink]="" (click)="findProductByCategory(1)">Livres</a></li>
-            <li><a  [routerLink]="" (click)="findProductByCategory(2)">Equipements</a><li>
-            <li><a [routerLink]="" (click)="findProductByCategory(3)">Autres</a></li>
+            <li><a (click)="filterProductBy(1,0,0,0)">Livres</a></li>
+            <li><a  (click)="filterProductBy(2,0,0,0)">Equipements</a><li>
+            <li><a  (click)="filterProductBy(3,0,0,0)">Autres</a></li>
           </ul>
           <br>
-          <li class= "deroulant"><a href="">Statuts</a>
+          <li class= "deroulant"><a>Statuts</a>
             <ul  class="sous">
-              <li><a [routerLink]="" (click)="findProductByCategory(1)">Tout neuf</a></li>
-              <li><a  [routerLink]="" (click)="findProductByCategory(2)">Recondition en bon etat
+              <li><a  (click)="filterProductBy(0,1,0,0)">Tout neuf</a></li>
+              <li><a   (click)="filterProductBy(0,2,0,0)">Recondition en bon etat
               </a><li>
             </ul>
           </li>
           <br>
-          <li class= "deroulant"><a href="">Diponibilité</a>
+          <li class= "deroulant"><a>Diponibilité</a>
             <ul  class="sous">
-              <li><a [routerLink]="" (click)="findProductByCategory(1)">Disponible</a></li>
-              <li><a  [routerLink]="" (click)="findProductByCategory(2)">Reservé</a><li>
-              <li><a  [routerLink]="" (click)="findProductByCategory(2)">Donné</a><li>
+              <li><a  (click)="filterProductBy(0,0,1,0)">Disponible</a></li>
+              <li><a   (click)="filterProductBy(0,0,2,0)">Reservé</a><li>
+              <li><a   (click)="filterProductBy(0,0,3,0)">Donné</a><li>
             </ul>
           </li>
           <br>
-          <li class= "deroulant"><a href="">Date de création</a>
+          <li class= "deroulant"><a>Date de création</a>
             <ul  class="sous">
               <!-- <li><a [routerLink]="" (click)="findProductByCategory(1)"></a></li>
               <li><a  [routerLink]="" (click)="findProductByCategory(2)"></a><li> -->

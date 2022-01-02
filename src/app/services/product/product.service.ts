@@ -32,5 +32,9 @@ export class ProductService {
   findProductByCategory(idCategorie:number) : Observable<ProductEntity[]>{
     return this.http.post<ProductEntity[]>("http://localhost:8080/product/searchByCategory",idCategorie);
   }
+  filterProduct(idCategorie:number,idStatus : number,idAvailability : number,idDate : number):Observable<ProductEntity[]>{
+    return this.http.get<ProductEntity[]>(`http://localhost:8080/product/search/${idCategorie}/${idStatus}/${idAvailability}/${idDate}`);
+  }
+
 
 }
