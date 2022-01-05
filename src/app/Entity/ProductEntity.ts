@@ -8,7 +8,7 @@ export class ProductEntity{
     categoryCode!: number;
     availability!: number;
     idUser! : number;
-    point : number;
+    prix : number;
     startDate : Date ;
 
 }
