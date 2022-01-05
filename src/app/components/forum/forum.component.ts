@@ -40,5 +40,5 @@ export class ForumComponent implements OnInit {
           this.toastService.error('Erreur')
           }
     );
-      }
+   }
 }

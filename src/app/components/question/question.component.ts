@@ -33,13 +33,13 @@ export class QuestionComponent implements OnInit {
     .subscribe({
         next :(data)=>{
           this.getAllForums();
-            this.toastService.success('La question a ete ajouter');
+          this.rout.navigate(["/forum"]);
       
         },
         error :()=>  this.toastService.error('Erreur lors de lajout')
 
     });
-    this.rout.navigate(["/forum"]);
+  
   }
   getAllForums(){
     this.forumService.getAllForums()
