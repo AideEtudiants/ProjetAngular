@@ -10,9 +10,9 @@
     <div class="container">
     <div class="row">
       <ng-container *ngFor="let frum of ForumList">
-         <ul class="list-group">
+         <ul class="list-group" (click)="getForum(frum.id)">
             <li [ngClass]="{'list-group-item': true,'list-group-item-success': true}">
-              <h1 style="float : left;"><a href= "/answer">{{frum.title}}</a></h1>
+              <h1 style="float : left;">{{frum.title}}</h1>
               <p style="float : left; color: black;">{{frum.description}}</p>
               <p style="float : right;" >{{frum.startDate | date: 'longDate'}}</p>
           </li></ul>

@@ -83,7 +83,8 @@ getAllclass(){
   voirCart(){
     const dialogRef = this.dialog.open(GoogleMap);
   }
-  ParticiperCours(idUser:number,idClass :number): void {
+
+  ParticiperCours(idUser:number,idClass:number): void {
        this.classService.getClassById(idClass).subscribe((data:ClassEntity) => {
          this.classActuelle = data;
          console.log(this.classActuelle)
