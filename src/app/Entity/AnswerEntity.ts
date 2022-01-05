@@ -1,4 +1,4 @@
-export class AnswertEntity{
+export class AnswerEntity{
     id: number;
     idForum : number;
     idUser: number;

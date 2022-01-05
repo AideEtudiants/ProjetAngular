@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ForumEntity } from 'src/app/Entity/ForumEntity';
-import { AnswertEntity } from 'src/app/Entity/AnswerEntity';
+import { AnswerEntity } from 'src/app/Entity/AnswerEntity';
 
 
 @Injectable({
@@ -19,11 +19,11 @@ export class ForumAnswerService {
     return this.http.get<ForumEntity[]>("http://localhost:8080/question/listForum");
   }
   
-  listAnswerByForum(idForum:number): Observable<AnswertEntity>{
-    return this.http.post<AnswertEntity>("http://localhost:8080/question/listAnswerByForum",idForum);
+  listAnswerByForum(idForum:number): Observable<AnswerEntity>{
+    return this.http.post<AnswerEntity>("http://localhost:8080/question/listAnswerByForum",idForum);
   }
 
-  updateAnswer(answer:AnswertEntity):Observable<any>{
+  updateAnswer(answer:AnswerEntity):Observable<any>{
     return this.http.post<any>("http://localhost:8080/question/updateAnswer",answer);
   }
 
@@ -43,8 +43,12 @@ export class ForumAnswerService {
     return this.http.post<any>("http://localhost:8080/questiondeleteAnswer",idanswer);
   }
 
-  addAnswerToForum(answer:AnswertEntity):Observable<any>{
+  addAnswerToForum(answer:AnswerEntity):Observable<any>{
     return this.http.post<any>("http://localhost:8080/question/addAnswerToForum",answer);
+  }
+
+  findForumById(idforum:number):Observable<any>{
+    return this.http.post<any>("http://localhost:8080/question/getforum",idforum);
   }
 
   

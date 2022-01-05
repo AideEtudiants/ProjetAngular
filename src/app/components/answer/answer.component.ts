@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AnswertEntity } from 'src/app/Entity/AnswerEntity';
+import { AnswerEntity } from 'src/app/Entity/AnswerEntity';
 import { ForumEntity } from 'src/app/Entity/ForumEntity';
 import { ForumAnswerService } from 'src/app/services/forum/forumService.service';
 
@@ -12,12 +12,13 @@ import { ForumAnswerService } from 'src/app/services/forum/forumService.service'
 })
 export class AnswerComponent implements OnInit {
   forum:ForumEntity;
-  answer:AnswertEntity=new AnswertEntity(null,1,4,'',null);
+  answer:AnswerEntity=new AnswerEntity(null,1,4,'',null);
 
   constructor(private router: Router,private rout: Router,
     protected forumService:ForumAnswerService, protected toastService : ToastrService) { }
 
   ngOnInit(): void {
+    
   }
 
   onNoClick(){

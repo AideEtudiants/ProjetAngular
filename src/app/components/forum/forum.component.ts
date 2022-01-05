@@ -27,6 +27,10 @@ export class ForumComponent implements OnInit {
     this.router.navigate(['/question']);
   }
 
+  getForum(idforum:number){
+     this.forumservice.findForumById(idforum);
+  }
+
   getAllForums(){
     this.forumservice.getAllForums()
       .subscribe((data:ForumEntity [] )=>{

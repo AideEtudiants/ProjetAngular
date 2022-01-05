@@ -48,6 +48,7 @@ const routes: Routes = [
   { path: 'newclasse', component: NewclasseComponent},
   { path: 'profil', component: UserProfilComponent},
   { path: 'updateProduit/:id', component: UpdateProduitComponent},
+  { path: 'answer', component: AnswerComponent},
 
 
 ];
