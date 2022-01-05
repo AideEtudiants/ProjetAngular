@@ -40,7 +40,7 @@ export class ProduitsComponent implements OnInit {
       availability: 0,
       idUser :4,
       startDate : new Date(),
-      prix : 0
+      price : 0
   };
 
   constructor(

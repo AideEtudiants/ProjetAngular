@@ -28,7 +28,7 @@ export class classComponent implements OnInit {
   data:any=''
   user: User;
   classActuelle: any;
-  userActuel:any;
+  userActuel:ClassUser;
   newclasse:ClassEntity = new ClassEntity(null,4,"","","");
   constructor(protected classService : ClassService,
     protected toastService : ToastrService,
@@ -96,6 +96,7 @@ getAllclass(){
        });
        
        dialogRef.afterClosed().subscribe(result => {
+         this.classService.addUserToClass(this.userActuel).subscribe()
        });
      }
 
