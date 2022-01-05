@@ -12,6 +12,7 @@ import { ForumAnswerService } from 'src/app/services/forum/forumService.service'
 export class QuestionComponent implements OnInit {
   options: any=[];
   data:any='';
+  forum:ForumEntity=new ForumEntity(null,'','',4,null);
 
   constructor(private router: Router, protected forumService:ForumAnswerService, protected toastService : ToastrService,) { }
 
@@ -23,8 +24,9 @@ export class QuestionComponent implements OnInit {
     this.router.navigate(["/forum"]);
   }
 
-  addForum(forum:ForumEntity){
-    this.forumService.addForum(forum)
+  addForum(){
+    console.log(this.forum);
+    this.forumService.addForum(this.forum)
     .subscribe({
         next :(data)=>{
             this.toastService.success('La question a ete ajouter')

@@ -9,19 +9,19 @@
   <p align="center">Saisir votre question</p>
 
   <div align="center">
-  <input [(ngModel)]="data.title" class="form-control" type="text"placeholder="Ma question">
+  <input [(ngModel)]="forum.title" class="form-control" type="text"placeholder="Ma question" [ngModelOptions]="{standalone: true}">
 </div><br>
   <div class="row">
     <div class="col-xs-12">
       <div align="center">
-        <textarea [(ngModel)]="data.description" class="form-control h-25" rows="5" placeholder="Détails" required></textarea>
+        <textarea [(ngModel)]="forum.description" class="form-control h-25" rows="5" placeholder="Détails" required [ngModelOptions]="{standalone: true}"></textarea>
       </div><br>
         <div align="center">
-          <input [(ngModel)]="data.startDate" class="form-control" type="date">
+          <input [(ngModel)]="forum.startDate" class="form-control" type="date" [ngModelOptions]="{standalone: true}">
         </div><br>
        <p align="center">Des étudiants se chargeront de repondre à votre question </p><br>
       <div align="center">
-        <button class="btn btn-primary" mat-button [mat-dialog-close]="data" cdkFocusInitial>Soumettre</button>
+        <button class="btn btn-primary" (click)="addForum()">Soumettre</button>
         <button class="btn btn-secondary" style="float:right;" (click)="onNoClick()">Annuler</button>
     </div>
     <br>

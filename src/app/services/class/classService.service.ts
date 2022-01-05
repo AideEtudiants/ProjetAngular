@@ -16,7 +16,7 @@ export class ClassService {
   getClassById(idClass: number):Observable<ClassEntity>{
     return this.http.post<ClassEntity>("http://localhost:8080/class/classById",idClass);
   }
-  addClass(newClass:ClassEntity ):Observable<any>{
+  addClass(newClass:ClassEntity):Observable<any>{
     return this.http.post<any>("http://localhost:8080/class/create",newClass);
   }
   deleteClass(id: number):Observable<any>{
