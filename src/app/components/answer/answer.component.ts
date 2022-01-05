@@ -1,36 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AnswertEntity } from 'src/app/Entity/AnswerEntity';
 import { ForumEntity } from 'src/app/Entity/ForumEntity';
 import { ForumAnswerService } from 'src/app/services/forum/forumService.service';
 
 @Component({
-  selector: 'app-question',
-  templateUrl: './question.component.html',
-  styleUrls: ['./question.component.css']
+  selector: 'app-answer',
+  templateUrl: './answer.component.html',
+  styleUrls: ['./answer.component.css']
 })
-export class QuestionComponent implements OnInit {
-  options: any=[];
-  data:any='';
-  forum:ForumEntity=new ForumEntity(null,'','',4,null);
+export class AnswerComponent implements OnInit {
+  forum:ForumEntity;
+  answer:AnswertEntity=new AnswertEntity(null,1,4,'',null);
 
   constructor(private router: Router,private rout: Router,
-     protected forumService:ForumAnswerService, protected toastService : ToastrService) { }
+    protected forumService:ForumAnswerService, protected toastService : ToastrService) { }
 
   ngOnInit(): void {
-
   }
 
   onNoClick(){
     this.router.navigate(["/forum"]);
   }
 
-  addForum(){
-    console.log(this.forum);
-    this.forumService.addForum(this.forum)
+  repondre(){
+    console.log(this.answer);
+    this.forumService.addAnswerToForum(this.answer)
     .subscribe({
         next :(data)=>{
-            this.toastService.success('La question a ete ajouter')
+            this.toastService.success('La reponse a ete ajouter')
         },
         error :()=>  this.toastService.error('Erreur lors de lajout')
 
@@ -38,4 +37,5 @@ export class QuestionComponent implements OnInit {
     this.rout.navigate(["/forum"]);
 }
 
-}
+  }
+

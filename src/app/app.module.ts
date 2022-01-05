@@ -31,6 +31,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UpdateProduitComponent } from './components/update-produit/update-produit.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { AnswerComponent } from './components/answer/answer.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,7 @@ const routes: Routes = [
     FooterComponent,
     UpdateProduitComponent,
     ParticiperForm,
+    AnswerComponent,
   ],
   imports: [
     BrowserModule,
