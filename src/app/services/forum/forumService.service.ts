@@ -16,39 +16,39 @@ export class ForumAnswerService {
   constructor(private http:HttpClient) {  }
 
    getAllForums(): Observable <ForumEntity[]>{
-    return this.http.get<ForumEntity[]>("http://localhost:8080/question/listForum");
+    return this.http.get<ForumEntity[]>("http://localhost:8080/forum/list");
   }
   
   listAnswerByForum(idForum:number): Observable<AnswerEntity>{
-    return this.http.post<AnswerEntity>("http://localhost:8080/question/listAnswerByForum",idForum);
+    return this.http.post<AnswerEntity>("http://localhost:8080/forum/listAnswerByForum",idForum);
   }
 
   updateAnswer(answer:AnswerEntity):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/question/updateAnswer",answer);
+    return this.http.post<any>("http://localhost:8080/forum/updateAnswer",answer);
   }
 
   updateForum(forum:ForumEntity):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/question/updateForum",forum);
+    return this.http.post<any>("http://localhost:8080/forum/updateForum",forum);
   }
 
   addForum(newForum:ForumEntity):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/question/createForum",newForum);
+    return this.http.post<any>("http://localhost:8080/forum/createForum",newForum);
   }
 
   deleteForum(idforum: number):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/question/deleteForum",idforum);
+    return this.http.post<any>("http://localhost:8080/forum/deleteForum",idforum);
   }
 
   deleteAnswer(idanswer: number):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/questiondeleteAnswer",idanswer);
+    return this.http.post<any>("http://localhost:8080/forum/deleteAnswer",idanswer);
   }
 
   addAnswerToForum(answer:AnswerEntity):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/question/addAnswerToForum",answer);
+    return this.http.post<any>("http://localhost:8080/forum/addAnswerToForum",answer);
   }
 
-  findForumById(idforum:number):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/question/getforum",idforum);
+  findForumById(idforum:number):Observable<ForumEntity>{
+    return this.http.get<ForumEntity>(`http://localhost:8080/forum/${idforum}`);
   }
 
   

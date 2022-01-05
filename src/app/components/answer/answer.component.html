@@ -1,14 +1,14 @@
 <div class="container">
-<h1>{{forum.title}} </h1>
-<br>
-<p>{{forum.description}}</p>
-<p style="float:right;">Date de publication : {{forum.startDate}} </p>
+    <h1>{{forum.title}} </h1>
+    <br>
+    <p>{{forum.description}}</p>
+    <p style="float:right;">Date de publication : {{forum.startDate}} </p>
 </div>
 <br><br>
 <div class="container">
-<div align="center">
-<textarea [(ngModel)]="answer.answer" class="form-control h-25" rows="5" placeholder="Repondre ici" required [ngModelOptions]="{standalone: true}"></textarea>
-<button class="btn btn-primary" style="float:right;" (click)="repondre()">Participer</button>
-<button class="btn btn-secondary"(click)="onNoClick()">Annuler</button>
-</div>
+    <div align="center">
+        <textarea [(ngModel)]="answer.answer" class="form-control h-25" rows="5" placeholder="Repondre ici" required [ngModelOptions]="{standalone: true}"></textarea>
+        <button class="btn btn-primary" style="float:right;" (click)="repondre()">Participer</button>
+        <button class="btn btn-secondary" style="float:left;"(click)="onNoClick()" >Annuler</button>
+    </div>
 </div>

@@ -26,11 +26,9 @@ export class ForumComponent implements OnInit {
   onQuiz(){
     this.router.navigate(['/question']);
   }
-
-  getForum(idforum:number){
-     this.forumservice.findForumById(idforum);
+  getUrl(id : number){
+    this.router.navigate([`/answer/${id}`]);
   }
-
   getAllForums(){
     this.forumservice.getAllForums()
       .subscribe((data:ForumEntity [] )=>{

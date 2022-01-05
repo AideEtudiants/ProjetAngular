@@ -39,42 +39,57 @@
 <div class="wrapper">
   <div class="sidebar">
     <br>
-   <button class="search-btn" style="float:left; margin-left:0%;margin-top: 0px;" (click) = "newProduct()" >Nouveau produit</button>
-     <br>
-
-      <ul class = "ul">
-        <!-- <li class= "active"><a href="/produits">Toutes les offres</a></li> -->
-        <li class= "deroulant"><a>Catégorie</a>
-          <ul  class="sous">
-            <li><a (click)="filterProductBy(1,0,0,0)">Livres</a></li>
-            <li><a  (click)="filterProductBy(2,0,0,0)">Equipements</a><li>
-            <li><a  (click)="filterProductBy(3,0,0,0)">Autres</a></li>
-          </ul>
-          <br>
-          <li class= "deroulant"><a>Statuts</a>
-            <ul  class="sous">
-              <li><a  (click)="filterProductBy(0,1,0,0)">Tout neuf</a></li>
-              <li><a   (click)="filterProductBy(0,2,0,0)">Recondition en bon etat
-              </a><li>
-            </ul>
-          </li>
-          <br>
-          <li class= "deroulant"><a>Diponibilité</a>
-            <ul  class="sous">
-              <li><a  (click)="filterProductBy(0,0,1,0)">Disponible</a></li>
-              <li><a   (click)="filterProductBy(0,0,2,0)">Reservé</a><li>
-              <li><a   (click)="filterProductBy(0,0,3,0)">Donné</a><li>
-            </ul>
-          </li>
-          <br>
-          <li class= "deroulant"><a>Date de création</a>
-            <ul  class="sous">
-              <!-- <li><a [routerLink]="" (click)="findProductByCategory(1)"></a></li>
-              <li><a  [routerLink]="" (click)="findProductByCategory(2)"></a><li> -->
-            </ul>
-          </li>
-         
-      </ul>
+    <button class="search-btn" style="float:left; margin-left:0%;margin-top: 0px;" (click) = "newProduct()" >Nouveau produit</button>
+    <br>
+    <!-- <li class= "active"><a href="/produits">Toutes les offres</a></li> -->
+    <ul class = "ul">   
+      <li class= "deroulant">
+        <mat-label >Catégorie</mat-label><br>
+        <mat-select [(value)]="data.categoryCode" name="field4" class="field-select">
+          <mat-option value="1">Livre</mat-option>
+          <mat-option value="2">Equipement</mat-option>
+          <mat-option value="3">Autre</mat-option>
+        </mat-select>
+      </li>
+      <br>
+      <br>
+      <li class= "deroulant">
+        <mat-label >Statuts</mat-label><br>
+        <mat-select [(value)]="data.statusCode" name="field4" class="field-select">
+          <mat-option value="1">Tout neuf</mat-option>
+          <mat-option value="2">Recondition en bon etat</mat-option>
+        </mat-select>
+      </li>
+      <br>
+      <br>
+      <li class= "deroulant">
+        <mat-label >Diponibilité</mat-label><br>
+        <mat-select [(value)]="data.availability" name="field4" class="field-select">
+          <mat-option value="1">Disponible</mat-option>
+          <mat-option value="2">Reservé</mat-option>
+          <mat-option value="3">Donné</mat-option>
+        </mat-select>
+      </li> 
+      <br>
+      <br>
+      <li class= "deroulant">
+        <mat-label >Date de création</mat-label><br>
+        <mat-select [(value)]="data.startDate" name="field4" class="field-select">
+          <mat-option value="1"> Il y a jour</mat-option>
+          <mat-option value="2"> Il y a semaine</mat-option>
+          <mat-option value="3"> Il y a un mois</mat-option>
+        </mat-select>
+      </li>      
+    </ul>
+    <br>
+    <br>
+    <button class="search-btn" 
+     style="float:left; margin-left:0%;margin-top: 0px;" 
+     >
+     Filter
+    </button>
+    <!-- (click) = "filterProductBy(filterProduct.categoryCode,filterProduct.statusCode,filterProduct.availability,0)" -->
+    <br>
   </div>
 </div>
 

@@ -50,7 +50,7 @@ export class ProduitsComponent implements OnInit {
       protected router: Router,
       private serviceRecherche : RechercheService,
       private route: ActivatedRoute,
-      public dialog: MatDialog
+      public dialog: MatDialog,
     ) {}
 
     ngOnInit(): void {

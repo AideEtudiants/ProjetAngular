@@ -70,7 +70,7 @@ AjoutClass(){
 
 getAllclass(){
   this.classService.getAllClass()
-  . subscribe ((data :ClassEntity [] )=>{
+  .subscribe ((data :ClassEntity [] )=>{
       this.classList = data;
       console.log(this.classList)
       },
