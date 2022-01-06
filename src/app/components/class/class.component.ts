@@ -27,9 +27,10 @@ export class classComponent implements OnInit {
   options: any=[];
   data:any=''
   user: User;
+  public nbrParticipants : number;
   classActuelle: any;
   userActuel:ClassUser;
-  newclasse:ClassEntity = new ClassEntity(null,4,"","","");
+  newclasse:ClassEntity = new ClassEntity(null,4,"","","","");
   constructor(protected classService : ClassService,
     protected toastService : ToastrService,
     protected router: Router,
@@ -50,6 +51,7 @@ AjoutClass(){
   dialogRef.afterClosed().subscribe(result => {
 
     if(result!=null){
+        this.getAllclass();
         this.newclasse = result;
         console.log(this.newclasse);
         this.classService.addClass(this.newclasse).subscribe({
@@ -59,8 +61,7 @@ AjoutClass(){
           error :()=>  this.toastService.error('Erreur lors de lajout')
   
       });
-        this.getAllclass();
-        this.router.navigate(['/cours']);
+     this.router.navigate(['/cours']);
     }
 
 
@@ -86,7 +87,12 @@ getAllclass(){
   ParticiperCours(idUser:number,idClass:number): void {
        this.classService.getClassById(idClass).subscribe((data:ClassEntity) => {
          this.classActuelle = data;
-         console.log(this.classActuelle)
+         console.log(this.classActuelle);
+         this.classService.nbrParticipants(this.classActuelle.id)
+         .subscribe(res=>{
+            this.nbrParticipants =  res;
+         });
+         
        }) 
        
        //this.userService.getUserById(idUser).subscribe
@@ -94,7 +100,7 @@ getAllclass(){
          width: '400px',
          data: this.classActuelle,
        });
-       
+      
        dialogRef.afterClosed().subscribe(result => {
          this.classService.addUserToClass(this.userActuel).subscribe()
        });
@@ -109,10 +115,14 @@ getAllclass(){
 export class ParticiperForm {
   constructor(
     public dialogRef: MatDialogRef<ParticiperForm>,
+    @Inject(MAT_DIALOG_DATA) public nbrParticipants : number,
+    public classService : ClassService,
     @Inject(MAT_DIALOG_DATA) public data:ClassEntity,
   ) {}
 
   onNoClick(): void {
+    console.log(this.data);
     this.dialogRef.close();
+
   }
 }
