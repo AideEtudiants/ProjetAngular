@@ -34,5 +34,8 @@ export class ClassService {
   addUserToClass( Class: ClassUser):Observable<any>{
     return this.http.post<any>("http://localhost:8080/class/addUserToClass", Class);
   }
+  nbrParticipants (idClass :number) :Observable<number>{
+    return this.http.post<number>("http://localhost:8080/class/participant",idClass);
+  }
 
 }

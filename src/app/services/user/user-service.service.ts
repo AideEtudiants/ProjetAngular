@@ -22,13 +22,16 @@ export class UserService {
 
   getUserById(idUser: number):Observable<any>{
     return this.http.post<any>("http://localhost:8080/profile",idUser);
-   }
+  }
+  getUserByName(idUser: number):Observable<any>{
+  return this.http.post<any>("http://localhost:8080/name",idUser);
+  }
 
-   getProductAdd(idUser:number):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/product/listProductByUser",idUser);
-   }
+  getProductAdd(idUser:number):Observable<any>{
+  return this.http.post<any>("http://localhost:8080/product/listProductByUser",idUser);
+  }
 
-   getClassAdd(idUser:number):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/class/listClassByUser",idUser);
-   }
+  getClassAdd(idUser:number):Observable<any>{
+  return this.http.post<any>("http://localhost:8080/class/listClassByUser",idUser);
+  }
 }

@@ -90,38 +90,53 @@ getAllclass(){
          console.log(this.classActuelle);
          this.classService.nbrParticipants(this.classActuelle.id)
          .subscribe(res=>{
-            this.nbrParticipants =  res;
+            this.nbrParticipants = res;
+            console.log( this.nbrParticipants)
          });
-         
-       }) 
-       
+         }) 
+         console.log(this.classActuelle)
        //this.userService.getUserById(idUser).subscribe
        const dialogRef = this.dialog.open(ParticiperForm, {
          width: '400px',
          data: this.classActuelle,
-       });
+        }
+       );
       
        dialogRef.afterClosed().subscribe(result => {
          this.classService.addUserToClass(this.userActuel).subscribe()
        });
      }
-
 }
 
 @Component({
   selector: 'ParticiperForm',
   templateUrl: 'ParticiperForm.html',
 })
-export class ParticiperForm {
+export class ParticiperForm implements OnInit{
+  public nbrParticipants : number;
   constructor(
     public dialogRef: MatDialogRef<ParticiperForm>,
-    @Inject(MAT_DIALOG_DATA) public nbrParticipants : number,
     public classService : ClassService,
-    @Inject(MAT_DIALOG_DATA) public data:ClassEntity,
+    @Inject(MAT_DIALOG_DATA) public data:ClassEntity
+ 
   ) {}
-
+  ngOnInit(): void {
+    this.classService.getClassById(this.data?.id).subscribe((res:ClassEntity) => {
+      this.data = res;
+      console.log("2"+this.data);
+      this.classService.nbrParticipants(this.data?.id)
+      .subscribe(res=>{
+         this.nbrParticipants = res;
+         console.log( this.nbrParticipants);
+      });
+      this.classService.nbrParticipants(this.data?.id)
+      .subscribe(res=>{
+         this.nbrParticipants = res;
+         console.log( this.nbrParticipants);
+      });
+    }) 
+  }
   onNoClick(): void {
-    console.log(this.data);
     this.dialogRef.close();
 
   }
