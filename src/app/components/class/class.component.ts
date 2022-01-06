@@ -114,9 +114,11 @@ getAllclass(){
 })
 export class ParticiperForm implements OnInit{
   public nbrParticipants : number;
+  public name : string;
   constructor(
     public dialogRef: MatDialogRef<ParticiperForm>,
     public classService : ClassService,
+    public userService : UserService,
     @Inject(MAT_DIALOG_DATA) public data:ClassEntity
  
   ) {}
@@ -127,13 +129,10 @@ export class ParticiperForm implements OnInit{
       this.classService.nbrParticipants(this.data?.id)
       .subscribe(res=>{
          this.nbrParticipants = res;
-         console.log( this.nbrParticipants);
       });
-      this.classService.nbrParticipants(this.data?.id)
-      .subscribe(res=>{
-         this.nbrParticipants = res;
-         console.log( this.nbrParticipants);
-      });
+      this.userService.getNamebyId(this.data?.userId).subscribe(resu=>{
+        this.name = resu;
+     });
     }) 
   }
   onNoClick(): void {

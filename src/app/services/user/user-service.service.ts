@@ -23,8 +23,8 @@ export class UserService {
   getUserById(idUser: number):Observable<any>{
     return this.http.post<any>("http://localhost:8080/profile",idUser);
   }
-  getUserByName(idUser: number):Observable<any>{
-  return this.http.post<any>("http://localhost:8080/name",idUser);
+  getNamebyId(idUser: number):Observable<any>{
+  return this.http.post<any>("http://localhost:8080/users/name",idUser);
   }
 
   getProductAdd(idUser:number):Observable<any>{
