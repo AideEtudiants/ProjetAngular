@@ -16,9 +16,10 @@
       <div align="center">
         <textarea [(ngModel)]="forum.description" class="form-control h-25" rows="5" placeholder="Détails" required [ngModelOptions]="{standalone: true}"></textarea>
       </div><br>
-        <div align="center">
+        <!-- <div align="center">
           <input [(ngModel)]="forum.startDate" class="form-control" type="date" [ngModelOptions]="{standalone: true}">
-        </div><br>
+        </div> -->
+        <br>
        <p align="center">Des étudiants se chargeront de repondre à votre question </p><br>
       <div align="center">
         <button class="btn btn-primary" (click)="addForum()">Soumettre</button>
