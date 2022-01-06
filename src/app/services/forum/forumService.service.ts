@@ -19,8 +19,8 @@ export class ForumAnswerService {
     return this.http.get<ForumEntity[]>("http://localhost:8080/forum/list");
   }
   
-  listAnswerByForum(idForum:number): Observable<AnswerEntity>{
-    return this.http.post<AnswerEntity>("http://localhost:8080/forum/listAnswerByForum",idForum);
+  listAnswerByForum(idForum:number): Observable<AnswerEntity[]>{
+    return this.http.get<AnswerEntity[]>(`http://localhost:8080/forum/listAnswerByForum/${idForum}`);
   }
 
   updateAnswer(answer:AnswerEntity):Observable<any>{

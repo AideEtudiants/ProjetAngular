@@ -38,7 +38,6 @@ export class classComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllclass();
-
   }
 
 

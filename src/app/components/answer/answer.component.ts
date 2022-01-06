@@ -16,6 +16,7 @@ export class AnswerComponent implements OnInit {
   forum:ForumEntity;
   answer:AnswerEntity=new AnswerEntity(null,1,4,'',null);
   idQuestion : number;
+  answers : AnswerEntity[]=[];
 
 
   constructor(private router: Router,private rout: Router,
@@ -33,7 +34,17 @@ export class AnswerComponent implements OnInit {
       error :()=>  this.toastService.error('Erreur lors de laffichage ')
 
     });
-   
+    this.getAnswersById();
+  }
+  getAnswersById(){
+    this.forumService.listAnswerByForum(this.idQuestion).subscribe({
+      next :(result : AnswerEntity[])=>{
+        this.answers = result;   
+        console.log( this.answers )
+      },
+      error :()=>  this.toastService.error('Erreur lors de laffichage ')
+
+    });
 
   }
 

@@ -10,8 +10,9 @@ import { ClassUser } from 'src/app/Entity/ClassUser';
 export class ClassService {
 
   constructor(private http:HttpClient) {  }
-  getAllClass() : Observable< any>{
-    return this.http.get<any>("http://localhost:8080/class/list");
+  
+  getAllClass() : Observable< ClassEntity[]>{
+    return this.http.get<ClassEntity[]>("http://localhost:8080/class/list");
   }
   getClassById(idClass: number):Observable<ClassEntity>{
     return this.http.post<ClassEntity>("http://localhost:8080/class/classById",idClass);

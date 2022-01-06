@@ -41,11 +41,12 @@
     <br>
     <button class="search-btn" style="float:left; margin-left:0%;margin-top: 0px;" (click) = "newProduct()" >Nouveau produit</button>
     <br>
-    <!-- <li class= "active"><a href="/produits">Toutes les offres</a></li> -->
+    <br>
+    <br>
     <ul class = "ul">   
       <li class= "deroulant">
         <mat-label >Catégorie</mat-label><br>
-        <mat-select [(value)]="data.categoryCode" name="field4" class="field-select">
+        <mat-select [(value)]="p.categoryCode" name="field4" class="field-select">
           <mat-option value="1">Livre</mat-option>
           <mat-option value="2">Equipement</mat-option>
           <mat-option value="3">Autre</mat-option>
@@ -55,7 +56,7 @@
       <br>
       <li class= "deroulant">
         <mat-label >Statuts</mat-label><br>
-        <mat-select [(value)]="data.statusCode" name="field4" class="field-select">
+        <mat-select [(value)]="p.statusCode" name="field4" class="field-select">
           <mat-option value="1">Tout neuf</mat-option>
           <mat-option value="2">Recondition en bon etat</mat-option>
         </mat-select>
@@ -64,7 +65,7 @@
       <br>
       <li class= "deroulant">
         <mat-label >Diponibilité</mat-label><br>
-        <mat-select [(value)]="data.availability" name="field4" class="field-select">
+        <mat-select [(value)]="p.availability" name="field4" class="field-select">
           <mat-option value="1">Disponible</mat-option>
           <mat-option value="2">Reservé</mat-option>
           <mat-option value="3">Donné</mat-option>
@@ -74,7 +75,7 @@
       <br>
       <li class= "deroulant">
         <mat-label >Date de création</mat-label><br>
-        <mat-select [(value)]="data.startDate" name="field4" class="field-select">
+        <mat-select [(value)]="p.startDate" name="field4" class="field-select">
           <mat-option value="1"> Il y a jour</mat-option>
           <mat-option value="2"> Il y a semaine</mat-option>
           <mat-option value="3"> Il y a un mois</mat-option>
@@ -85,10 +86,11 @@
     <br>
     <button class="search-btn" 
      style="float:left; margin-left:0%;margin-top: 0px;" 
+     (click) = "filterProductBy(p.categoryCode,p.statusCode,p.availability,0)"
      >
      Filter
     </button>
-    <!-- (click) = "filterProductBy(filterProduct.categoryCode,filterProduct.statusCode,filterProduct.availability,0)" -->
+    <!--  -->
     <br>
   </div>
 </div>

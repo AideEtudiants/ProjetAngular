@@ -27,6 +27,18 @@ export class ProduitsComponent implements OnInit {
   myControl = new FormControl();
   options: any=[];
   data:any='';
+  public p:ProductEntity={
+    id: 0,
+    name: '',
+    image: '',
+    description: '',
+    statusCode: 0,
+    categoryCode: 0,
+    availability: 0,
+    idUser :4,
+    startDate : new Date(),
+    price : 0
+    };
   elementTrouve:any=[];
   filteredOptions: Observable<string[]>;
   productListSelect: boolean ;
@@ -50,7 +62,7 @@ export class ProduitsComponent implements OnInit {
       protected router: Router,
       private serviceRecherche : RechercheService,
       private route: ActivatedRoute,
-      public dialog: MatDialog,
+      public dialog: MatDialog
     ) {}
 
     ngOnInit(): void {
