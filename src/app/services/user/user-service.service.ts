@@ -31,7 +31,7 @@ export class UserService {
   return this.http.post<any>("http://localhost:8080/product/listProductByUser",idUser);
   }
 
-  getClassAdd(idUser:number):Observable<any>{
+  getClassByUser(idUser:number):Observable<any>{
   return this.http.post<any>("http://localhost:8080/class/listClassByUser",idUser);
   }
 }

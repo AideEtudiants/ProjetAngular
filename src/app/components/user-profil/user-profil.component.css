@@ -9,11 +9,11 @@
 }
 .container1 {
     display: inline-block;
-    max-width: 300px;
-    padding: 150px;
+    max-width: 100px;
+    padding: 100px;
     background-color: white;
     border-radius: 3px;
-    margin: 30px;
+    margin: right;
     vertical-align: top;
     box-shadow: 0 0 6px rgb(133, 165, 101);
     height: auto;

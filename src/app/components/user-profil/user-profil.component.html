@@ -5,13 +5,6 @@
 <div class="container">
 
   <h1 class="center">Votre profil<span role="img" aria-label="Clipboard"> 📋</span></h1>
-
-  <div class="container1">
-    <ng-container>
-      <img id="photo" src="{{user.photo}}" alt="">
-    </ng-container>
-  </div>
-
   <div class="container2">
     <ng-container >
         <p><strong>Nom: </strong>{{user.lastName}}</p>
@@ -24,12 +17,19 @@
     </ng-container>
   </div>
 
+  <div class="container1">
+      <img id="photo" src="{{user.photo}}" alt="">
+  </div>
+
+
+
   <div class="container3">
     <h1 class="center2">Offres déposées </h1><br>
     <ng-container *ngFor="let product of products" >
       <p>
-        <button class="btn btn-success" [routerLink]="['/updateProduit', product.id]">Modifier</button>
+      <!-- <button class="btn btn-success" [routerLink]="['/updateProduit', product.id]">Modifier</button> -->
         <button class="btn btn-danger" (click)="deleteProduct(product)">Supprimer</button>
+
         <strong> Nom du produit: </strong>{{product.name}}
         <strong> Description: </strong>{{product.description}}
       </p>
@@ -40,7 +40,7 @@
     <h1 class="center2">Cours mis en ligne </h1><br>
     <ng-container *ngFor="let clas of class">
       <p>
-        <button class="btn btn-success" [routerLink]="['/updateClass', clas.id]">Modifier</button>
+        <!-- <button class="btn btn-success" [routerLink]="['/updateClass', clas.id]">Modifier</button> -->
         <button class="btn btn-danger" (click)="deleteClass(clas)">Supprimer</button>
         <strong>Nom du cours: </strong>{{clas.name}}
         <strong> Description: </strong>{{clas.description}}
