@@ -1,40 +1,5 @@
 <body>
-<nav class = "navbar">
-  <div class="nav">
-    <a href=""><img class= "brand-logo"  src= "./assets/logo.png" alt></a>
-    <div class = "nav-items" >
-      <div class="searchbar " style= "margin-left: 500px; margin-top: -1px;" >
-        <input
-        placeholder="Rechercher"
-        matInput
-        [formControl]="myControl"
-        [matAutocomplete]="auto"
-        [(ngModel)]=" data"
-        class = "search-box"
-        >
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option
-          *ngFor="let option of filteredOptions | async"
-          [value]="option">
-          {{option}}
-        </mat-option>
-        </mat-autocomplete>
-        <button class="search-btn"  (click)="rechercher()"> Rechercher </button>
-      </div>
-      <a href="/profil"><img src="./assets/user.png"></a>
-      <a href="/cart"><img src="./assets/cart.png">
-        <div style="font-size: 15px;" class="badge bg-danger">{{totalItem}}</div></a>
 
-    </div>
-  </div>
-  <ul class="links-container">
-    <li class= "link-item"><a class= "link" href= ""> ACCUEIL</a></li>
-    <li class= "link-item" ><a class= "link" href= "/produits"> OFFRES</a></li>
-    <li class= "link-item"><a class= "link" href= "cours"> AIDES AUX DEVOIRS</a></li>
-    <li class= "link-item"><a class= "link" href= "/forum"> FORUM</a></li>
-  </ul>
-
-</nav>
 <h1 align="center">Toutes les offres</h1>
 <div class="wrapper">
   <div class="sidebar">
@@ -43,7 +8,7 @@
     <br>
     <br>
     <br>
-    <ul class = "ul">   
+    <ul class = "ul">
       <li class= "deroulant">
         <mat-label >Catégorie</mat-label><br>
         <mat-select [(value)]="p.categoryCode" name="field4" class="field-select">
@@ -70,7 +35,7 @@
           <mat-option value="2">Reservé</mat-option>
           <mat-option value="3">Indisponible</mat-option>
         </mat-select>
-      </li> 
+      </li>
       <br>
       <br>
       <li class= "deroulant">
@@ -80,12 +45,12 @@
           <mat-option value="2"> Il y a semaine</mat-option>
           <mat-option value="3"> Il y a un mois</mat-option>
         </mat-select>
-      </li>      
+      </li>
     </ul>
     <br>
     <br>
-    <button class="search-btn" 
-     style="float:left; margin-left:0%;margin-top: 0px;" 
+    <button class="search-btn"
+     style="float:left; margin-left:0%;margin-top: 0px;"
      (click) = "filterProductBy(p.categoryCode,p.statusCode,p.availability,0)"
      >
      Filter
